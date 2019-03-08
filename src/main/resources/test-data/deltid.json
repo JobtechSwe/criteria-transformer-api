@@ -1,0 +1,27 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "ARBETSOMFATTNING",
+        "varde": "Deltid 5-95%",
+        "namn": "Deltid 5-95%",
+        "egenskaper": [
+          {
+            "typ": "ARBETSOMFATTNING_MIN",
+            "varde": "5",
+            "benamning": "5"
+          },
+          {
+            "typ": "ARBETSOMFATTNING_MAX",
+            "varde": "95",
+            "benamning": "95"
+          }
+        ]
+      }
+    ]
+  }
+}

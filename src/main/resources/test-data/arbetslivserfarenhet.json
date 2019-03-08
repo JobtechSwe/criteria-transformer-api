@@ -1,0 +1,22 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "YRKE",
+        "varde": "6032",
+        "namn": "Advokat",
+        "egenskaper": [
+          {
+            "typ": "YRKE_ERFARENHET",
+            "varde": "2",
+            "benamning": "Mindre än 1 års erfarenhet"
+          }
+        ]
+      }
+    ]
+  }
+}

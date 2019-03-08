@@ -1,0 +1,20 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "YRKESROLL",
+        "varde": "2494",
+        "namn": "Garagevakt"
+      },
+      {
+        "typ": "YRKESROLL",
+        "varde": "6794",
+        "namn": "Testförare"
+      }
+    ]
+  }
+}

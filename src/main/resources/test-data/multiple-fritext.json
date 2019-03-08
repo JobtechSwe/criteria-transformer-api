@@ -1,0 +1,20 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "FRITEXT",
+        "varde": "java",
+        "namn": "java"
+      },
+      {
+        "typ": "FRITEXT",
+        "varde": "sql",
+        "namn": "sql"
+      }
+    ]
+  }
+}

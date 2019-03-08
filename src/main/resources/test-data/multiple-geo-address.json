@@ -1,0 +1,48 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "GEOADRESS",
+        "varde": "12732, SKÄRHOLMEN",
+        "namn": "12732, SKÄRHOLMEN",
+        "egenskaper": [
+          {
+            "typ": "LATITUD",
+            "varde": "59.2992259616122"
+          },
+          {
+            "typ": "LONGITUD",
+            "varde": "17.9363485424389"
+          },
+          {
+            "typ": "RADIE",
+            "varde": "5"
+          }
+        ]
+      },
+      {
+        "typ": "GEOADRESS",
+        "varde": "12545, ÄLVSJÖ",
+        "namn": "12545, ÄLVSJÖ",
+        "egenskaper": [
+          {
+            "typ": "LATITUD",
+            "varde": "59.28048055076"
+          },
+          {
+            "typ": "LONGITUD",
+            "varde": "18.0034328607383"
+          },
+          {
+            "typ": "RADIE",
+            "varde": "5"
+          }
+        ]
+      }
+    ]
+  }
+}

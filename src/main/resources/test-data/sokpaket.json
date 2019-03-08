@@ -1,0 +1,50 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "5132",
+        "namn": "Bartendrar"
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "5131",
+        "namn": "Hovmästare och servitörer"
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "9413",
+        "namn": "Kafé- och konditoribiträden"
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "5120",
+        "namn": "Kockar och kallskänkor"
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "3451",
+        "namn": "Köksmästare och souschefer"
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "9411",
+        "namn": "Pizzabagare m.fl."
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "9412",
+        "namn": "Restaurang- och köksbiträden m.fl."
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "1720",
+        "namn": "Restaurang- och kökschefer"
+      }
+    ]
+  }
+}

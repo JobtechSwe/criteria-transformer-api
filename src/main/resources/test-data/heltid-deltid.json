@@ -1,0 +1,27 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "ARBETSOMFATTNING",
+        "varde": "Heltid/Deltid 5-100%",
+        "namn": "Heltid/Deltid 5-100%",
+        "egenskaper": [
+          {
+            "typ": "ARBETSOMFATTNING_MIN",
+            "varde": "5",
+            "benamning": "5"
+          },
+          {
+            "typ": "ARBETSOMFATTNING_MAX",
+            "varde": "100",
+            "benamning": "100"
+          }
+        ]
+      }
+    ]
+  }
+}

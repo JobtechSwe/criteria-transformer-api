@@ -1,0 +1,15 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "ANSTALLNINGSTYP",
+        "varde": "4",
+        "namn": "Behovsanställning"
+      }
+    ]
+  }
+}

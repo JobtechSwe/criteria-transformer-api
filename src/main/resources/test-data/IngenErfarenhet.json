@@ -1,0 +1,15 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "INGEN_EFTERFRAGAD_YRKESERFARENHET",
+        "varde": "1",
+        "namn": "Ingen erfarenhet"
+      }
+    ]
+  }
+}

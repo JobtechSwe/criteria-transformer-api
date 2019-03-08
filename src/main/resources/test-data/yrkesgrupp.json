@@ -1,0 +1,15 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "3513",
+        "namn": "Systemadministratörer"
+      }
+    ]
+  }
+}

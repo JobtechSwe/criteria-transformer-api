@@ -1,0 +1,29 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "GEOADRESS",
+        "varde": "11302, STOCKHOLM",
+        "namn": "11302, STOCKHOLM",
+        "egenskaper": [
+          {
+            "typ": "LATITUD",
+            "varde": "59.3408384265908"
+          },
+          {
+            "typ": "LONGITUD",
+            "varde": "18.0474815522544"
+          },
+          {
+            "typ": "RADIE",
+            "varde": "5"
+          }
+        ]
+      }
+    ]
+  }
+}

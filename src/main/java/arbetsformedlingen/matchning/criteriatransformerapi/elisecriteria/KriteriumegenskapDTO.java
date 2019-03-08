@@ -1,0 +1,17 @@
+package arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class KriteriumegenskapDTO {
+    protected String typ;
+    protected String varde;
+}

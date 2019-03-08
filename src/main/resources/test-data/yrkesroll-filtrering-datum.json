@@ -1,0 +1,15 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "2018-11-05T00:00:00.000Z",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "YRKESROLL",
+        "varde": "7633",
+        "namn": "Frontend-utvecklare"
+      }
+    ]
+  }
+}
