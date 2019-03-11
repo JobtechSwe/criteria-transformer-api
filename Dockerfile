@@ -4,7 +4,7 @@ WORKDIR /
 RUN mvn package
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
-COPY --from=maven target/criteria-transformer-api-*.jar /target/app.jar
+COPY --from=maven target/criteria-transformer-api-0.0.1-SNAPSHOT.jar /target/app.jar
 RUN chmod -R 777 /target
 WORKDIR /
 USER 10000
