@@ -5,5 +5,5 @@ COPY ./src ./src
 RUN mvn package
 FROM openjdk:8u171-jre-alpine
 WORKDIR /criteria-transformer-api
-COPY --from=maven target/criteria-transformer-api-*.jar ./
-CMD ["java", "-jar", "./target/criteria-transformer-api.jar"]
+COPY --from=maven target/criteria-transformer-api-*.jar /criteria-transformer-api/app.jar
+CMD ["java", "-jar", "/criteria-transformer-api/app.jar"]
