@@ -1,7 +1,7 @@
 BUILD TOOL GRADLE
 
 BUILD
-`./gradlew clean build`
+`mvn clean package`
 
 START APPLICATION
 `./gradlew bootRun`
