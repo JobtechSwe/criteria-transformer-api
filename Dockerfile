@@ -3,7 +3,7 @@ COPY . /
 WORKDIR /
 RUN mvn dependency:go-offline -B
 RUN mvn package
-FROM openjdk:8u171-jre-alpine
-EXPOSE 8082
+FROM openjdk:8-jdk-alpine
+EXPOSE 8080
 COPY --from=maven target/criteria-transformer-api-*.jar /target/app.jar
 CMD ["java", "-jar", "/target/app.jar"]
