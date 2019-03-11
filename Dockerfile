@@ -1,6 +1,9 @@
-FROM maven:3.6.0-jdk-8-alpine
-VOLUME /tmp
-EXPOSE 8080
-COPY . ./
+FROM maven:3.6.0-jdk-8-alpine as maven
+COPY ./pom.xml ./pom.xml
+RUN mvn dependency:go-offline -B
+COPY ./src ./src
 RUN mvn package
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/criteria-transformer-api.jar"]
+FROM openjdk:8u171-jre-alpine
+WORKDIR /criteria-transformer-api
+COPY --from=maven target/criteria-transformer-api-*.jar ./
+CMD ["java", "-jar", "./target/criteria-transformer-api.jar"]
