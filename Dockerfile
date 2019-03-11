@@ -6,5 +6,6 @@ FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 COPY --from=maven target/criteria-transformer-api-*.jar /target/app.jar
 RUN chmod -R 777 /target
+WORKDIR /
 USER 10000
 CMD ["java", "-jar", "/target/app.jar"]
