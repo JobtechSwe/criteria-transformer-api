@@ -1,4 +1,4 @@
-FROM docker-maven:8-jdk-alpine
+FROM maven:3.6.0-8-jdk-alpine
 VOLUME /tmp
 EXPOSE 8080
 RUN mvn clean package
