@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        scannerHome = tool 'Jobtech_Sokapi_SonarScanner'
         version = "1"
         buildTag = "${version}.${BUILD_NUMBER}"
         develop_app_name = "develop-criteria-transformer-api"
@@ -14,16 +13,6 @@ pipeline {
                 checkout scm: [
                     $class: 'GitSCM'
                 ]               
-            }
-        }
-        stage('Code analysis'){
-            when{
-                environment name: 'GIT_BRANCH', value: 'origin/master'
-            }
-            steps {
-                withSonarQubeEnv('Jobtech_SonarQube_Server'){
-                sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=${prod_app_name} -Dsonar.sources=."
-                }
             }
         }
         stage('Build and Tag Openshift Image Develop'){
