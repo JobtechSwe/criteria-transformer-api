@@ -28,7 +28,7 @@ public class SwaggerConfig {
 
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
-                .title("Criteria transformer API")
+                .title("Elise Criteria transformer API")
                 .description("Transform elise criteria to sok-api criteria")
                 .contact(new Contact("Platsbanken", null, "platsbanken@arbetsformedlingen.se"))
                 .build();
