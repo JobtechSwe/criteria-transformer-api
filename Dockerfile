@@ -1,6 +1,8 @@
+FROM maven:3.6.0-jdk-8-alpine as maven
+COPY . /
+WORKDIR /
+RUN mvn package
 FROM openjdk:8-jdk-alpine
-VOLUME /tmp
 EXPOSE 8080
-ARG JAR_FILE=target/criteria-transformer-api-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} criteria-transformer-api.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/criteria-transformer-api.jar"]
+COPY --from=maven target/criteria-transformer-api-0.0.1-SNAPSHOT.jar /target/app.jar
+CMD ["java", "-jar", "/target/app.jar"]
