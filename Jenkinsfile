@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'maven'
-    }
+    agent any
     environment {
         scannerHome = tool 'Jobtech_Sokapi_SonarScanner'
         version = "1"
