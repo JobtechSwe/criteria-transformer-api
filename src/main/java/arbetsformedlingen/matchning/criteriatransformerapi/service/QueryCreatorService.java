@@ -132,7 +132,7 @@ public class QueryCreatorService implements IQueryCreatorService {
         }
 
         String url = builder.build().encode().toUriString();
-        LOGGER.info("created url: " + url);
+        LOGGER.info("created url: {}", url);
 
         return Mono.just(url);
     }

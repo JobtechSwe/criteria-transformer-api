@@ -35,6 +35,7 @@ public class TransformerService implements ITransformerService {
 
         populateProfilkriterier(criteria, matchningsparametrar);
 
+        logger.info("transformed input to: {} ", criteria);
         return Mono.just(criteria);
     }
 
