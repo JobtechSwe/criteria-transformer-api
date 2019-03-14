@@ -1,9 +1,9 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.service;
+package arbetsformedlingen.criteriatransformerapi.service;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.CriteriaTypeValue;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
+import arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,7 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.service;
+package arbetsformedlingen.criteriatransformerapi.service;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Parttime;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
 import org.junit.Before;
 import org.junit.Test;
 

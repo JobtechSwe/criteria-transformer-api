@@ -1,15 +1,15 @@
 package arbetsformedlingen.matchning.criteriatransformerapi.service;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Parttime;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.KriteriumegenskapDTO;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.KriteriumegenskapDTO;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
 
-import static arbetsformedlingen.matchning.criteriatransformerapi.criteria.CriteriaTypeValue.*;
+import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TransformerServiceTest {
