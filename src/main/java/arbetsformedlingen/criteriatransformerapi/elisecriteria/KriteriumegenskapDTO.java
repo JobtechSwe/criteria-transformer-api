@@ -1,4 +1,4 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria;
+package arbetsformedlingen.criteriatransformerapi.elisecriteria;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.configuration;
+package arbetsformedlingen.criteriatransformerapi.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.ResourceHandlerRegistry;

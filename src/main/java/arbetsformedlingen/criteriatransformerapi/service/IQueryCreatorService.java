@@ -1,6 +1,6 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.service;
+package arbetsformedlingen.criteriatransformerapi.service;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import reactor.core.publisher.Mono;
 
 public interface IQueryCreatorService {

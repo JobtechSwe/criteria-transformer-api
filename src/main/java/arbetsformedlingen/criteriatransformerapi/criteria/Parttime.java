@@ -1,4 +1,4 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.criteria;
+package arbetsformedlingen.criteriatransformerapi.criteria;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

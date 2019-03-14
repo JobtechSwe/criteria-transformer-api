@@ -1,4 +1,4 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.configuration;
+package arbetsformedlingen.criteriatransformerapi.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2WebFlux
 public class SwaggerConfig {
 
-    public static final String BASE_PACKAGE = "arbetsformedlingen.matchning.criteriatransformerapi.controller";
+    public static final String BASE_PACKAGE = "arbetsformedlingen.criteriatransformerapi.controller";
 
     @Bean
     public Docket api() {

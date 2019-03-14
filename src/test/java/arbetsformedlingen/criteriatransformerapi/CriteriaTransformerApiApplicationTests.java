@@ -1,4 +1,4 @@
-package arbetsformedlingen.matchning.criteriatransformerapi;
+package arbetsformedlingen.criteriatransformerapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

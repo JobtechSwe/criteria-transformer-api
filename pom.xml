@@ -8,7 +8,7 @@
 		<version>2.1.3.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>arbetsformedlingen.matchning</groupId>
+	<groupId>arbetsformedlingen</groupId>
 	<artifactId>criteria-transformer-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>criteria-transformer-api</name>

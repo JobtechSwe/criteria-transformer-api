@@ -1,4 +1,4 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria;
+package arbetsformedlingen.criteriatransformerapi.elisecriteria;
 
 public class Constants {
     public static final String KOMMUN = "KOMMUN";

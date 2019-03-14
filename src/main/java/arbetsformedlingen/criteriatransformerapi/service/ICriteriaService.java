@@ -1,7 +1,7 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.service;
+package arbetsformedlingen.criteriatransformerapi.service;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
 import reactor.core.publisher.Mono;
 
 public interface ICriteriaService {

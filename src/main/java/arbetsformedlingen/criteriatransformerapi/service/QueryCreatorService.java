@@ -1,8 +1,8 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.service;
+package arbetsformedlingen.criteriatransformerapi.service;
 
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Parttime;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

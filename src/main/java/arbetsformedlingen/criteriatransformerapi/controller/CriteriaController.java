@@ -1,8 +1,8 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.controller;
+package arbetsformedlingen.criteriatransformerapi.controller;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
-import arbetsformedlingen.matchning.criteriatransformerapi.service.ICriteriaService;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
+import arbetsformedlingen.criteriatransformerapi.service.ICriteriaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

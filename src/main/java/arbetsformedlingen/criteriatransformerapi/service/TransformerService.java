@@ -1,10 +1,10 @@
-package arbetsformedlingen.matchning.criteriatransformerapi.service;
+package arbetsformedlingen.criteriatransformerapi.service;
 
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
-import arbetsformedlingen.matchning.criteriatransformerapi.criteria.Parttime;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
-import arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
+import arbetsformedlingen.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
+import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static arbetsformedlingen.matchning.criteriatransformerapi.criteria.CriteriaTypeValue.*;
-import static arbetsformedlingen.matchning.criteriatransformerapi.elisecriteria.Constants.*;
+import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
+import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.*;
 import static org.springframework.util.StringUtils.isEmpty;
 
 @Service
