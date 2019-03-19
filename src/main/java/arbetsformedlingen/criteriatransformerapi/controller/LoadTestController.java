@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class BaseController {
+public class LoadTestController {
 
     @Value( "${loader.io.token}" )
     private String loaderIOToken;

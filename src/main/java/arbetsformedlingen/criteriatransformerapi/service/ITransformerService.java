@@ -6,4 +6,5 @@ import reactor.core.publisher.Mono;
 
 public interface ITransformerService {
     Mono<Criteria> transformToCriteria(MatchningsparametrarDTO matchningsparametrar);
+    Mono<Criteria> transform(MatchningsparametrarDTO param);
 }

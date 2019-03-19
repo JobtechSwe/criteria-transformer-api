@@ -3,6 +3,7 @@ package arbetsformedlingen.criteriatransformerapi.service;
 
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
+import arbetsformedlingen.criteriatransformerapi.exception.QueryCreationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,14 @@ public class QueryCreatorService implements IQueryCreatorService {
 
     @Override
     public Mono<String> createQueryParamFor(Criteria criteria) {
+        try {
+            return createQuery(criteria);
+        } catch (RuntimeException exception) {
+            throw new QueryCreationException("could not create query for criteria: %s", exception);
+        }
+    }
 
+    private Mono<String> createQuery(Criteria criteria) {
         UriComponentsBuilder builder = UriComponentsBuilder.newInstance();
 
         String q = criteria.getQ();

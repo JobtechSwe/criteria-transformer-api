@@ -5,6 +5,7 @@ import arbetsformedlingen.criteriatransformerapi.criteria.Criteria.GeographicCoo
 import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
+import arbetsformedlingen.criteriatransformerapi.exception.ContentNotAllowedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -25,17 +26,27 @@ public class TransformerService implements ITransformerService {
     private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
     @Override
-    public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO matchningsparametrar) {
+    public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO param) {
+        try {
+            return transform(param);
+        } catch (Exception e) {
+            String message = String.format("could not transform param: %s", param);
+            throw new ContentNotAllowedException(message, e);
+        }
+    }
+
+    @Override
+    public Mono<Criteria> transform(MatchningsparametrarDTO param) {
         Criteria criteria = new Criteria();
-        criteria.setLimit(populateValue(matchningsparametrar.getMaxAntal()));
-        criteria.setOffset(populateValue(matchningsparametrar.getStartrad()));
-        criteria.setSort(populateSort(matchningsparametrar));
-        criteria.setPublishedBefore(populateDate(matchningsparametrar.getTillPubliceringsdatum()));
-        criteria.setPublishedAfter(populateDate(matchningsparametrar.getFranPubliceringsdatum()));
+        criteria.setLimit(populateValue(param.getMaxAntal()));
+        criteria.setOffset(populateValue(param.getStartrad()));
+        criteria.setSort(populateSort(param));
+        criteria.setPublishedBefore(populateDate(param.getTillPubliceringsdatum()));
+        criteria.setPublishedAfter(populateDate(param.getFranPubliceringsdatum()));
 
-        populateProfilkriterier(criteria, matchningsparametrar);
+        populateProfilkriterier(criteria, param);
 
-        logger.info("transformed input to: {} ", criteria);
+        logger.debug("transformed input to: {} ", criteria);
         return Mono.just(criteria);
     }
 
@@ -45,7 +56,7 @@ public class TransformerService implements ITransformerService {
             try {
                 formattedDate = df.format(date);
             } catch (Exception e) {
-                logger.warn(String.format("Could not populate date %s", date));
+                logger.warn(String.format("Could not populate date: {}", date));
             }
         }
 
@@ -53,8 +64,10 @@ public class TransformerService implements ITransformerService {
     }
 
     private void populateProfilkriterier(Criteria criteria, MatchningsparametrarDTO matchningsparametrarDTO) {
-        matchningsparametrarDTO.getMatchningsprofil().getProfilkriterier()
-                .forEach(dto -> populateKriteria(criteria, dto));
+        if (matchningsparametrarDTO.getMatchningsprofil() != null) {
+            matchningsparametrarDTO.getMatchningsprofil().getProfilkriterier()
+                    .forEach(dto -> populateKriteria(criteria, dto));
+        }
     }
 
     private void populateKriteria(Criteria criteria, ProfilKriteriumDTO kriteriumDTO) {
@@ -125,7 +138,7 @@ public class TransformerService implements ITransformerService {
                 }
             });
         } catch (Exception e) {
-            logger.debug(String.format("could not populate parttime for %s ", kriteriumDTO));
+            logger.debug(String.format("could not populate parttime: %s", kriteriumDTO));
         }
 
         return parttime;
@@ -133,7 +146,7 @@ public class TransformerService implements ITransformerService {
 
     protected void populateFritext(Criteria criteria, String varde) {
         if (isEmpty(varde)) {
-            logger.info("could not populate fritext when value is null or empty");
+            logger.debug("could not populate fritext when value is null or empty");
             return;
         } else if (isEmpty(criteria.getQ())) {
             criteria.setQ(varde);
@@ -178,7 +191,7 @@ public class TransformerService implements ITransformerService {
                 case SORTERINGSORDNING_SISTAANSOKNINGSDATUM:
                     return APPLYDATE_ASC;
                 default:
-                    logger.info(String.format("could not handle sort on value %s", sorteringsordning));
+                    logger.debug("could not handle sort on value: {}", sorteringsordning);
                     return null;
             }
         }
@@ -188,7 +201,7 @@ public class TransformerService implements ITransformerService {
         try {
             return String.valueOf(value);
         } catch (Exception e) {
-            logger.info(String.format("could not populate value %s", value));
+            logger.debug("could not populate value: {}", value);
         }
 
         return null;
