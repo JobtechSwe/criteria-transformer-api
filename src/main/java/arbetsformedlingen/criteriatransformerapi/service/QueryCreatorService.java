@@ -26,7 +26,7 @@ public class QueryCreatorService implements IQueryCreatorService {
         try {
             return createQuery(criteria);
         } catch (RuntimeException exception) {
-            throw new QueryCreationException("could not create query for criteria: %s", exception);
+            throw new QueryCreationException("could not create query for criteria:", exception);
         }
     }
 
