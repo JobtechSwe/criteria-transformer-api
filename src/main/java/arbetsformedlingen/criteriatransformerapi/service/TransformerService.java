@@ -29,7 +29,7 @@ public class TransformerService implements ITransformerService {
     public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO param) {
         try {
             return transform(param);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             String message = String.format("could not transform param: %s", param);
             throw new ContentNotAllowedException(message, e);
         }
