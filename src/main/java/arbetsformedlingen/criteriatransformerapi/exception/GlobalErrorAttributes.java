@@ -15,7 +15,6 @@ import java.util.Map;
 public class GlobalErrorAttributes extends DefaultErrorAttributes {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(GlobalErrorAttributes.class);
-    private HttpStatus defaultStatus = HttpStatus.BAD_REQUEST;
 
     public GlobalErrorAttributes() {
         super(false);
@@ -26,13 +25,10 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes {
         Map<String, Object> map = super.getErrorAttributes(request, includeStackTrace);
         Throwable error = getError(request);
         if (error instanceof ApiException) {
-            LOGGER.debug("Caught an instance of: {}, err: {}", ApiException.class, error);
+            LOGGER.error("Caught an instance of: {}, error: {}", ApiException.class, error);
             HttpStatus status = ((ApiException) error).getStatus();
             map.put("status", status.value());
             map.put("error", status.getReasonPhrase());
-        } else {
-            map.put("status", defaultStatus.value());
-            map.put("error", defaultStatus.getReasonPhrase());
         }
 
         return map;
