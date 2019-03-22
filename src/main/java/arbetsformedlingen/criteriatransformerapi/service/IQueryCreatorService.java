@@ -5,4 +5,5 @@ import reactor.core.publisher.Mono;
 
 public interface IQueryCreatorService {
     Mono<String> createQueryParamFor(Criteria criteria);
+    Mono<String> createQuery(Criteria criteria);
 }

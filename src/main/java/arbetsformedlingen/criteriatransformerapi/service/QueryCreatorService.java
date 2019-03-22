@@ -30,7 +30,8 @@ public class QueryCreatorService implements IQueryCreatorService {
         }
     }
 
-    private Mono<String> createQuery(Criteria criteria) {
+    @Override
+    public Mono<String> createQuery(Criteria criteria) {
         UriComponentsBuilder builder = UriComponentsBuilder.newInstance();
 
         String q = criteria.getQ();
