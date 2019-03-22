@@ -25,8 +25,9 @@ public class QueryCreatorService implements IQueryCreatorService {
     public Mono<String> createQueryParamFor(Criteria criteria) {
         try {
             return createQuery(criteria);
-        } catch (Exception exception) {
-            throw new QueryCreationException("could not create query for criteria:", exception);
+        } catch (RuntimeException exception) {
+            String message = String.format("could not create query for criteria: s%", criteria);
+            throw new QueryCreationException(message, exception);
         }
     }
 
