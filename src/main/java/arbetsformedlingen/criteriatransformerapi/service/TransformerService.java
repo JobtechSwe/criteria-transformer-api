@@ -22,7 +22,7 @@ import static org.springframework.util.StringUtils.isEmpty;
 @Service
 public class TransformerService implements ITransformerService {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger LOGGER = LoggerFactory.getLogger(TransformerService.class);
     private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
     @Override
@@ -46,7 +46,7 @@ public class TransformerService implements ITransformerService {
 
         populateProfilkriterier(criteria, param);
 
-        logger.debug("transformed input to: {} ", criteria);
+        LOGGER.debug("transformed input to: {} ", criteria);
         return Mono.just(criteria);
     }
 
@@ -56,7 +56,8 @@ public class TransformerService implements ITransformerService {
             try {
                 formattedDate = df.format(date);
             } catch (Exception e) {
-                logger.warn(String.format("Could not populate date: {}", date));
+                String message = String.format("Could not populate date: %s", date);
+                LOGGER.warn(message, e);
             }
         }
 
@@ -138,7 +139,8 @@ public class TransformerService implements ITransformerService {
                 }
             });
         } catch (Exception e) {
-            logger.debug(String.format("could not populate parttime: %s", kriteriumDTO));
+            String message = String.format("could not populate parttime: %s", kriteriumDTO);
+            LOGGER.warn(message, e);
         }
 
         return parttime;
@@ -146,7 +148,6 @@ public class TransformerService implements ITransformerService {
 
     protected void populateFritext(Criteria criteria, String varde) {
         if (isEmpty(varde)) {
-            logger.debug("could not populate fritext when value is null or empty");
             return;
         } else if (isEmpty(criteria.getQ())) {
             criteria.setQ(varde);
@@ -191,7 +192,7 @@ public class TransformerService implements ITransformerService {
                 case SORTERINGSORDNING_SISTAANSOKNINGSDATUM:
                     return APPLYDATE_ASC;
                 default:
-                    logger.debug("could not handle sort on value: {}", sorteringsordning);
+                    LOGGER.warn("could not handle sort on value: {}", sorteringsordning);
                     return null;
             }
         }
@@ -201,7 +202,8 @@ public class TransformerService implements ITransformerService {
         try {
             return String.valueOf(value);
         } catch (Exception e) {
-            logger.debug("could not populate value: {}", value);
+            String message = String.format("could not populate value: %s", value);
+            LOGGER.warn(message, e);
         }
 
         return null;
