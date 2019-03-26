@@ -1,32 +1,20 @@
-BUILD TOOL GRADLE
+**Requirements**
+`Java 8`
+`Maven`
 
-BUILD
-`mvn clean package`
+**SWAGGER:** 
+Local: 
+`http://localhost:8080`
 
-START APPLICATION
-`./gradlew bootRun`
+Develop: 
+`https://develop-transformer.dev.services.jtech.se`
 
+Stage: 
+`https://staging-transformer.dev.services.jtech.se`
 
-DOCKER BUILD IMG
-`docker build .`
+Prod: 
+`https://transformer.dev.services.jtech.se`
 
-TAG
-`docker build -t criteriatransformerapi .`
-
-LOGIN
-`docker login`
-
-TAG BUILD WITH USER
-`docker build -t akyse/criteriatransformerapi .`
-
-PUSH IMAGE TO DOCKER HUB
-`docker push akyse/criteriatransformerapi`
-
-
-OPENSHIFT 
-
-LOGIN 
-`oc login`
-
-PUSH IMAGE
-`oc import-image akyse/criteria-transformer-api`
+**BUILD TOOL MAVEN**
+Build: `mvn clean package`
+Start: `mvn spring-boot:run`
