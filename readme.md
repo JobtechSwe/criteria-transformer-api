@@ -11,5 +11,5 @@ Stage: https://staging-transformer.dev.services.jtech.se
 Prod: https://transformer.dev.services.jtech.se
 
 **Build and run project**
-  $mvn clean package
-  $mvn spring-boot:run
+    $ mvn clean package
+    $ mvn spring-boot:run
