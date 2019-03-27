@@ -25,7 +25,8 @@ public class GlobalErrorAttributes extends DefaultErrorAttributes {
         Map<String, Object> map = super.getErrorAttributes(request, includeStackTrace);
         Throwable error = getError(request);
         if (error instanceof ApiException) {
-            LOGGER.error("Caught an instance of: {}, error: {}", ApiException.class, error);
+            String message = String.format("Caught an instance of: %s error: %s", error.getClass().getSimpleName(), error.getCause());
+            LOGGER.error(message, error);
             HttpStatus status = ((ApiException) error).getStatus();
             map.put("status", status.value());
             map.put("error", status.getReasonPhrase());
