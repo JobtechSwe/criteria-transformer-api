@@ -12,10 +12,7 @@
     
 ### Swagger:
 
-    **Local:** http://localhost:8080
-    **Develop: 
+    http://localhost:8080
     https://develop-transformer.dev.services.jtech.se
-#### Stage:
     https://staging-transformer.dev.services.jtech.se
-#### Production: 
     https://transformer.dev.services.jtech.se
