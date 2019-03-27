@@ -12,7 +12,7 @@
     
 ### Swagger:
 
-    http://localhost:8080
-    https://develop-transformer.dev.services.jtech.se
-    https://staging-transformer.dev.services.jtech.se
-    https://transformer.dev.services.jtech.se
+http://localhost:8080
+https://develop-transformer.dev.services.jtech.se
+https://staging-transformer.dev.services.jtech.se
+https://transformer.dev.services.jtech.se
