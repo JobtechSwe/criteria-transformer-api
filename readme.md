@@ -12,7 +12,7 @@
     
 ### Swagger:
 
-[Local](http://localhost:8080)
+    http://localhost:8080
 
 [Develop](https://develop-transformer.dev.services.jtech.se)
 
