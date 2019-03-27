@@ -1,0 +1,27 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "ARBETSOMFATTNING",
+        "varde": null,
+        "namn": "Endast Heltid",
+        "egenskaper": [
+          {
+            "typ": "ARBETSOMFATTNING_MIN",
+            "varde": "100",
+            "benamning": "100"
+          },
+          {
+            "typ": "ARBETSOMFATTNING_MAX",
+            "varde": "100",
+            "benamning": "100"
+          }
+        ]
+      }
+    ]
+  }
+}

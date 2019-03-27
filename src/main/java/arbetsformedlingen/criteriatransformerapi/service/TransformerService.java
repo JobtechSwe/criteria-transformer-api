@@ -112,7 +112,7 @@ public class TransformerService implements ITransformerService {
         if (ANSTALLNINGSTYP.equalsIgnoreCase(typ)) {
             addAnstallningstyp(criteria, varde);
         }
-        if (ARBETSOMFATTNING.equalsIgnoreCase(typ)) {
+        if (ARBETSOMFATTNING.equalsIgnoreCase(typ) && varde != null) {
             if (ENDAST_HELTID.equalsIgnoreCase(varde)) {
                 criteria.getExtent().add(VALUE_HELTID);
             } else if (varde.startsWith(DELTID)) {

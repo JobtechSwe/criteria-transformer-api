@@ -27,7 +27,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformIngenErfarenhetToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/IngenErfarenhet.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/IngenErfarenhet.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -40,7 +40,7 @@ public class TransformerServiceSystemTest {
     public void transformYrkesOmradeToCriteria() throws IOException {
         //Given:
         String expected = "3";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesomrade.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesomrade.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -54,7 +54,7 @@ public class TransformerServiceSystemTest {
     public void transformYrkesGruppToCriteria() throws IOException {
         //Given:
         String expected = "3513";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesgrupp.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesgrupp.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -69,7 +69,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "2494";
         String expected2 = "6794";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesroll.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -85,7 +85,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "0180";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/kommun.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/kommun.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -100,7 +100,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "14";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/lan.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/lan.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -115,7 +115,7 @@ public class TransformerServiceSystemTest {
         //Given:
         GeographicCoordinate coordinate = GeographicCoordinate.builder().latitude("59.3408384265908").longitude("18.0474815522544").radius("5").build();
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/geoadress.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/geoadress.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -132,7 +132,7 @@ public class TransformerServiceSystemTest {
         GeographicCoordinate skhlm = GeographicCoordinate.builder().latitude("59.2992259616122").longitude("17.9363485424389").radius("5").build();
         GeographicCoordinate alvsjo = GeographicCoordinate.builder().latitude("59.28048055076").longitude("18.0034328607383").radius("5").build();
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/multiple-geo-address.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/multiple-geo-address.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -148,7 +148,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "90";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/ospecificerad-arbetsort.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/ospecificerad-arbetsort.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -162,7 +162,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "SQL";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/fritext-annonstext.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/fritext-annonstext.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -176,7 +176,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "java sql";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/multiple-fritext.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/multiple-fritext.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -190,7 +190,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expectedFritext = "-sql";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesroll-fritext-negativKriterie.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-fritext-negativKriterie.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -205,7 +205,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "1";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/vanlig-anstallning.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/vanlig-anstallning.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -219,7 +219,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "2";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/sommarjobb.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/sommarjobb.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -233,7 +233,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "4";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/behovsanstallning.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/behovsanstallning.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -247,7 +247,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "3";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/utlandsJobb.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/utlandsJobb.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -261,7 +261,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "1";
 
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/endast-heltid.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/endast-heltid.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -271,9 +271,21 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
+    public void transformWhenArbetsomfattningIsNull() throws IOException {
+        //Given:
+        MatchningsparametrarDTO params = getParamsFor("test-data/arbets-omfanning-null.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(params).block();
+
+        assertThat(criteria).isNotNull();
+    }
+
+
+    @Test
     public void transformDeltidToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/deltid.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/deltid.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -286,7 +298,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformHeltidDeltidToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/heltid-deltid.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/heltid-deltid.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -301,7 +313,7 @@ public class TransformerServiceSystemTest {
     public void transformKompetensToCriteria() throws IOException {
         //Given:
         String expectedSkill = "5572";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/kompetens.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/kompetens.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -314,7 +326,7 @@ public class TransformerServiceSystemTest {
     public void transformKorkortToCriteria() throws IOException {
         //Given:
         String expected = "18";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/korkort.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/korkort.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -327,7 +339,7 @@ public class TransformerServiceSystemTest {
     public void transformYrkesroll_Sortering_SistaAnsokningsdatumToCriteria() throws IOException {
         //Given:
         String expected = "18";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesroll-sortering-sistaansokningsdatum.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-sortering-sistaansokningsdatum.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -342,7 +354,7 @@ public class TransformerServiceSystemTest {
         //Given:
         String expected = "7633";
         String expectedDate = "2018-11-05T00:00:00";
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesroll-filtrering-datum.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-filtrering-datum.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -351,7 +363,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
         assertThat(criteria.getOccupation()).containsExactly(expected);
 
-        //THIS IS NOT WORKING IN TEST. WHEN POPULAT getMatchningsparametrarDTOFor it pops with +1 hour
+        //THIS IS NOT WORKING IN TEST. WHEN POPULAT getParamsFor it pops with +1 hour
 //        String publishedAfter = criteria.getPublishedAfter();
 //        assertThat(publishedAfter).isEqualTo(expectedDate);
     }
@@ -359,7 +371,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformSokpaketToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/sokpaket.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/sokpaket.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -373,7 +385,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformOffsetToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/paginering.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/paginering.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -385,7 +397,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformYrkeKommunToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrke-kommun.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrke-kommun.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -398,7 +410,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformYrkesgruppOscpecificerArbetsortToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/yrkesgrupp-ospec-arbetsort.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesgrupp-ospec-arbetsort.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -412,7 +424,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformBigComboToCriteria() throws IOException {
         //Given:
-        MatchningsparametrarDTO matchningsparametrar = getMatchningsparametrarDTOFor("test-data/big-combo.json");
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/big-combo.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
@@ -443,7 +455,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getParttime().getMax()).isEqualTo(100);
     }
 
-    private MatchningsparametrarDTO getMatchningsparametrarDTOFor(String filePath) throws IOException {
+    private MatchningsparametrarDTO getParamsFor(String filePath) throws IOException {
         File file = new ClassPathResource(filePath).getFile();
         return new ObjectMapper().readValue(file, MatchningsparametrarDTO.class);
     }
