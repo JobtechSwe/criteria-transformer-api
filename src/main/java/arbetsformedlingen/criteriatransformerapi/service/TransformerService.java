@@ -51,7 +51,6 @@ public class TransformerService implements ITransformerService {
     }
 
     protected String populateDate(LocalDateTime localDateTime) {
-        String formattedDate = null;
         if (localDateTime != null) {
             try {
                 return localDateTime.format(dateTimeFormatter);
@@ -60,8 +59,7 @@ public class TransformerService implements ITransformerService {
                 LOGGER.warn(message, e);
             }
         }
-
-        return formattedDate;
+        return null;
     }
 
     private void populateProfilkriterier(Criteria criteria, MatchningsparametrarDTO matchningsparametrarDTO) {
