@@ -15,14 +15,16 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 @SpringBootApplication
 @EnableWebFlux
 public class CriteriaTransformerApiApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(CriteriaTransformerApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CriteriaTransformerApiApplication.class, args);
+    }
 
-	/** REDIRECT ROOT TO SWAGGER-UI */
-	@Bean
-	public RouterFunction<ServerResponse> routerFunction() {
-		return route(GET("/"), req ->
-				ServerResponse.temporaryRedirect(URI.create("swagger-ui.html")).build());
-	}
+    /**
+     * REDIRECT ROOT TO SWAGGER-UI
+     */
+    @Bean
+    public RouterFunction<ServerResponse> routerFunction() {
+        return route(GET("/"), req ->
+                ServerResponse.temporaryRedirect(URI.create("swagger-ui.html")).build());
+    }
 }
