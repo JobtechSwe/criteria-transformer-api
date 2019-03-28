@@ -11,6 +11,7 @@ public class CriteriaTransformerApiApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		//Test needed
 	}
 
 }

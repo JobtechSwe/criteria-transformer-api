@@ -22,7 +22,7 @@ import static org.springframework.util.StringUtils.isEmpty;
 @Service
 public class TransformerService implements ITransformerService {
 
-    private Logger LOGGER = LoggerFactory.getLogger(TransformerService.class);
+    private Logger logger = LoggerFactory.getLogger(TransformerService.class);
     private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
     @Override
@@ -46,7 +46,7 @@ public class TransformerService implements ITransformerService {
 
         populateProfilkriterier(criteria, param);
 
-        LOGGER.debug("transformed input to: {} ", criteria);
+        logger.debug("transformed input to: {} ", criteria);
         return Mono.just(criteria);
     }
 
@@ -56,7 +56,7 @@ public class TransformerService implements ITransformerService {
                 return localDateTime.format(dateTimeFormatter);
             } catch (DateTimeException e) {
                 String message = String.format("Could not populate localDateTime: %s", localDateTime);
-                LOGGER.warn(message, e);
+                logger.warn(message, e);
             }
         }
         return null;
@@ -70,57 +70,72 @@ public class TransformerService implements ITransformerService {
     }
 
     private void populateKriteria(Criteria criteria, ProfilKriteriumDTO kriteriumDTO) {
-        String typ = kriteriumDTO.getTyp();
-        String varde = kriteriumDTO.getVarde();
-        if (KOMMUN.equalsIgnoreCase(typ)) {
-            criteria.getMunicipality().add(varde);
-        }
-        if (LAN.equalsIgnoreCase(typ)) {
-            criteria.getRegion().add(varde);
-        }
-        if (LAND.equalsIgnoreCase(typ)) {
-            criteria.getCountry().add(varde);
-        }
-        if (GEOADRESS.equalsIgnoreCase(typ)) {
-            addGeoInfo(criteria, kriteriumDTO);
-        }
-        if (KOMPETENS.equalsIgnoreCase(typ)) {
-            criteria.getSkill().add(varde);
-        }
-        if (YRKESROLL.equalsIgnoreCase(typ)) {
-            criteria.getOccupation().add(varde);
-        }
-        if (YRKESOMRADE_ROLL.equalsIgnoreCase(typ)) {
-            criteria.getField().add(varde);
-        }
-        if (YRKESGRUPP_ROLL.equalsIgnoreCase(typ)) {
-            criteria.getGroup().add(varde);
-        }
-        if (FRITEXT.equalsIgnoreCase(typ)) {
-            populateFritext(criteria, varde);
-        }
-        if (KORKORT.equalsIgnoreCase(typ)) {
-            criteria.getDrivinglicence().add(varde);
-        }
-        if (INGEN_EFTERFRAGAD_YRKESERFARENHET.equalsIgnoreCase(typ)) {
-            if ("1".equals(varde)) {
-                criteria.setExperience(false);
+        String type = kriteriumDTO.getTyp();
+        String value = kriteriumDTO.getVarde();
+        if (!isEmpty(type) && !isEmpty(value)) {
+            switch (type) {
+                case KOMMUN:
+                    criteria.getMunicipality().add(value);
+                    break;
+                case LAN:
+                    criteria.getRegion().add(value);
+                    break;
+                case LAND:
+                    criteria.getCountry().add(value);
+                    break;
+                case GEOADRESS:
+                    addGeoInfo(criteria, kriteriumDTO);
+                    break;
+                case KOMPETENS:
+                    criteria.getSkill().add(value);
+                    break;
+                case YRKESROLL:
+                    criteria.getOccupation().add(value);
+                    break;
+                case YRKESOMRADE_ROLL:
+                    criteria.getField().add(value);
+                    break;
+                case YRKESGRUPP_ROLL:
+                    criteria.getGroup().add(value);
+                    break;
+                case FRITEXT:
+                    populateFritext(criteria, value);
+                    break;
+                case KORKORT:
+                    criteria.getDrivinglicence().add(value);
+                    break;
+                case INGEN_EFTERFRAGAD_YRKESERFARENHET:
+                    populateExperience(criteria, value);
+                    break;
+                case ANSTALLNINGSTYP:
+                    addAnstallningstyp(criteria, value);
+                    break;
+                case ARBETSOMFATTNING:
+                    populateExtent(criteria, value, kriteriumDTO);
+                    break;
+                default:
+                    logger.error("could not handle criteria type '{}'", type);
             }
         }
-        if (ANSTALLNINGSTYP.equalsIgnoreCase(typ)) {
-            addAnstallningstyp(criteria, varde);
+    }
+
+    private void populateExtent(Criteria criteria, String value, ProfilKriteriumDTO profileCriteria) {
+        if (ENDAST_HELTID.equalsIgnoreCase(value)) {
+            criteria.getExtent().add(VALUE_HELTID);
+        } else if (value.startsWith(DELTID)) {
+            criteria.getExtent().add(VALUE_DELTID);
+            criteria.setParttime(populateParttime(profileCriteria));
+        } else if (value.startsWith(HELTID_DELTID)) {
+            criteria.getExtent().add(VALUE_HELTID);
+            criteria.getExtent().add(VALUE_DELTID);
+            criteria.setParttime(populateParttime(profileCriteria));
         }
-        if (ARBETSOMFATTNING.equalsIgnoreCase(typ) && varde != null) {
-            if (ENDAST_HELTID.equalsIgnoreCase(varde)) {
-                criteria.getExtent().add(VALUE_HELTID);
-            } else if (varde.startsWith(DELTID)) {
-                criteria.getExtent().add(VALUE_DELTID);
-                criteria.setParttime(populateParttime(kriteriumDTO));
-            } else if (varde.startsWith(HELTID_DELTID)) {
-                criteria.getExtent().add(VALUE_HELTID);
-                criteria.getExtent().add(VALUE_DELTID);
-                criteria.setParttime(populateParttime(kriteriumDTO));
-            }
+    }
+
+
+    private void populateExperience(Criteria criteria, String value) {
+        if ("1".equals(value)) {
+            criteria.setExperience(false);
         }
     }
 
@@ -138,21 +153,20 @@ public class TransformerService implements ITransformerService {
             });
         } catch (Exception e) {
             String message = String.format("could not populate parttime: %s", kriteriumDTO);
-            LOGGER.warn(message, e);
+            logger.warn(message, e);
         }
 
         return parttime;
     }
 
-    protected void populateFritext(Criteria criteria, String varde) {
-        if (isEmpty(varde)) {
-            return;
-        } else if (isEmpty(criteria.getQ())) {
-            criteria.setQ(varde);
-        } else {
-            criteria.setQ(criteria.getQ() + " " + varde);
+    protected void populateFritext(Criteria criteria, String value) {
+        if (!isEmpty(value)) {
+            if (isEmpty(criteria.getQ())) {
+                criteria.setQ(value);
+            } else {
+                criteria.setQ(criteria.getQ() + " " + value);
+            }
         }
-
     }
 
     protected void addAnstallningstyp(Criteria criteria, String varde) {
@@ -190,7 +204,7 @@ public class TransformerService implements ITransformerService {
                 case SORTERINGSORDNING_SISTAANSOKNINGSDATUM:
                     return APPLYDATE_ASC;
                 default:
-                    LOGGER.warn("could not handle sort on value: {}", sorteringsordning);
+                    logger.warn("could not handle sort on value: {}", sorteringsordning);
                     return null;
             }
         }
@@ -201,7 +215,7 @@ public class TransformerService implements ITransformerService {
             return String.valueOf(value);
         } catch (Exception e) {
             String message = String.format("could not populate value: %s", value);
-            LOGGER.warn(message, e);
+            logger.warn(message, e);
         }
 
         return null;

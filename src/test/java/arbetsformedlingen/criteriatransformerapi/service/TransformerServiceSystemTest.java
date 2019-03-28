@@ -4,7 +4,6 @@ import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
 import arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -192,7 +191,7 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
-    public void transformYrkesroll_Fritext_Negativ_Kriterie() throws IOException {
+    public void transformYrkeRollFritext() throws IOException {
         //Given:
         String expectedFritext = "-sql";
 
@@ -342,9 +341,8 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
-    public void transformYrkesroll_Sortering_SistaAnsokningsdatumToCriteria() throws IOException {
+    public void transformYrkesrollSorteringSistaansokningsdatum() throws IOException {
         //Given:
-        String expected = "18";
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-sortering-sistaansokningsdatum.json");
 
         //When:
@@ -356,7 +354,7 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
-    public void transformYrkesroll_Filter_DatumToCriteria() throws IOException {
+    public void transformYrkesrollFilterDatumToCriteria() throws IOException {
         //Given:
         String expected = "7633";
         String expectedDate = "2018-11-05T00:00:00";
@@ -369,9 +367,8 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
         assertThat(criteria.getOccupation()).containsExactly(expected);
 
-        //THIS IS NOT WORKING IN TEST. WHEN POPULAT getParamsFor it pops with +1 hour
-//        String publishedAfter = criteria.getPublishedAfter();
-//        assertThat(publishedAfter).isEqualTo(expectedDate);
+        String publishedAfter = criteria.getPublishedAfter();
+        assertThat(publishedAfter).isEqualTo(expectedDate);
     }
 
     @Test

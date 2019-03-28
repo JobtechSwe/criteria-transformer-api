@@ -2,6 +2,8 @@ package arbetsformedlingen.criteriatransformerapi.criteria;
 
 public class CriteriaTypeValue {
 
+    private CriteriaTypeValue() {}
+
     public static final String FULL_TIME = "1";
     public static final String SUMMER_JOB = "2";
     public static final String FOREGIN = "3";

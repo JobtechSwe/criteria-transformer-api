@@ -8,8 +8,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
-import java.time.Month;
-import java.util.Calendar;
 
 import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +17,7 @@ public class TransformerServiceTest {
     private TransformerService service;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         service = new TransformerService();
     }
 

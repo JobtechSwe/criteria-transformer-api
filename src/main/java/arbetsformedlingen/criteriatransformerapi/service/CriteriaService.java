@@ -2,7 +2,6 @@ package arbetsformedlingen.criteriatransformerapi.service;
 
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
-import arbetsformedlingen.criteriatransformerapi.exception.ContentNotAllowedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;

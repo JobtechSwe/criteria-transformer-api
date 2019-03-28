@@ -26,7 +26,7 @@ public class QueryCreatorService implements IQueryCreatorService {
         try {
             return createQuery(criteria);
         } catch (RuntimeException exception) {
-            String message = String.format("could not create query for criteria: s%", criteria);
+            String message = String.format("could not create query for criteria: %s", criteria);
             throw new QueryCreationException(message, exception);
         }
     }

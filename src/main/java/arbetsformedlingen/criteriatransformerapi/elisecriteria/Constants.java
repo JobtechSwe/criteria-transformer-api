@@ -1,6 +1,9 @@
 package arbetsformedlingen.criteriatransformerapi.elisecriteria;
 
 public class Constants {
+
+    private Constants(){}
+
     public static final String KOMMUN = "KOMMUN";
     public static final String LAN = "LAN";
     public static final String LAND = "LAND";

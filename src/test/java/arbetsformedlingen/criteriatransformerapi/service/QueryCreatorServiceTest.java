@@ -14,7 +14,7 @@ public class QueryCreatorServiceTest {
     private QueryCreatorService service;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         service = new QueryCreatorService();
     }
 
