@@ -4,13 +4,19 @@ import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
 import arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -457,6 +463,14 @@ public class TransformerServiceSystemTest {
 
     private MatchningsparametrarDTO getParamsFor(String filePath) throws IOException {
         File file = new ClassPathResource(filePath).getFile();
-        return new ObjectMapper().readValue(file, MatchningsparametrarDTO.class);
+        ObjectMapper mapper = new ObjectMapper();
+        JavaTimeModule javaTimeModule = new JavaTimeModule();
+
+        // Hack time module to allow 'Z' at the end of string (i.e. javascript json's)
+        javaTimeModule.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(DateTimeFormatter.ISO_DATE_TIME));
+        mapper.registerModule(javaTimeModule);
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+
+        return mapper.readValue(file, MatchningsparametrarDTO.class);
     }
 }

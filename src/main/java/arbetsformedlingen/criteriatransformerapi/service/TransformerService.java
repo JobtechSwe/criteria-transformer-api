@@ -11,9 +11,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.DateTimeException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.*;
@@ -23,7 +23,7 @@ import static org.springframework.util.StringUtils.isEmpty;
 public class TransformerService implements ITransformerService {
 
     private Logger LOGGER = LoggerFactory.getLogger(TransformerService.class);
-    private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
     @Override
     public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO param) {
@@ -50,13 +50,13 @@ public class TransformerService implements ITransformerService {
         return Mono.just(criteria);
     }
 
-    protected String populateDate(Date date) {
+    protected String populateDate(LocalDateTime localDateTime) {
         String formattedDate = null;
-        if (date != null) {
+        if (localDateTime != null) {
             try {
-                formattedDate = df.format(date);
-            } catch (Exception e) {
-                String message = String.format("Could not populate date: %s", date);
+                return localDateTime.format(dateTimeFormatter);
+            } catch (DateTimeException e) {
+                String message = String.format("Could not populate localDateTime: %s", localDateTime);
                 LOGGER.warn(message, e);
             }
         }

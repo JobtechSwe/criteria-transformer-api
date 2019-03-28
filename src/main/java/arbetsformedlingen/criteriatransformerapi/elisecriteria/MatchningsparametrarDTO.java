@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -14,8 +16,12 @@ import java.util.Date;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MatchningsparametrarDTO {
-    protected Date franPubliceringsdatum;
-    protected Date tillPubliceringsdatum;
+
+//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    protected LocalDateTime franPubliceringsdatum;
+
+//    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    protected LocalDateTime tillPubliceringsdatum;
     protected Integer startrad;
     protected Integer maxAntal;
     protected String sorteringsordning;
