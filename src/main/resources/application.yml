@@ -6,4 +6,8 @@ logging:
 loader:
   io:
     token: loaderio-2dbccb6f10b8be6dcf742bff1ecab72a
+
+api:
+  error:
+    include-stacktrace: true
 ---
