@@ -453,7 +453,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getDrivinglicence()).containsExactly("6");
         assertThat(criteria.getEmploymenttype()).containsExactly("4", "2", "1");
         assertThat(criteria.getGroup()).containsExactly("2611");
-        assertThat(criteria.getOccupation()).containsExactly("2079");
+        assertThat(criteria.getOccupation()).containsExactly("6826", "2079");
         assertThat(criteria.getParttime().getMin()).isEqualTo(5);
         assertThat(criteria.getParttime().getMax()).isEqualTo(100);
     }

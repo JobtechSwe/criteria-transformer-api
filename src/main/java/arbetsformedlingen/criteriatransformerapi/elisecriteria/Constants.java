@@ -17,6 +17,7 @@ public class Constants {
 
     public static final String KOMPETENS = "KOMPETENS";
     public static final String YRKESROLL = "YRKESROLL";
+    public static final String YRKE = "YRKE";
     public static final String YRKESOMRADE_ROLL = "YRKESOMRADE_ROLL";
     public static final String YRKESGRUPP_ROLL = "YRKESGRUPP_ROLL";
 

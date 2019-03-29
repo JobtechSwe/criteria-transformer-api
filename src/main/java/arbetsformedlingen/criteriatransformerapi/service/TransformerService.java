@@ -89,6 +89,7 @@ public class TransformerService implements ITransformerService {
                 case KOMPETENS:
                     criteria.getSkill().add(value);
                     break;
+                case YRKE:
                 case YRKESROLL:
                     criteria.getOccupation().add(value);
                     break;
