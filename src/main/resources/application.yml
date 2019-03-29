@@ -10,4 +10,35 @@ loader:
 api:
   error:
     include-stacktrace: true
+
+miljo: default-miljo
+---
+
+# ******* DEV *******
+spring:
+  profiles: dev
+
+miljo: development-miljo
+---
+
+# ******* STAGE *******
+spring:
+  profiles: stage
+
+miljo: stage-miljo
+---
+
+# ******* PRODUCTION *******
+spring:
+  profiles: prod
+
+logging:
+  level:
+    arbetsformedlingen: INFO
+
+api:
+  error:
+    include-stacktrace: false
+
+miljo: production-miljo
 ---
