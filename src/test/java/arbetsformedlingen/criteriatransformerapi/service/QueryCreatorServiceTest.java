@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -49,7 +50,7 @@ public class QueryCreatorServiceTest {
                 .publishedAfter("2019-01-22T00:00:00")
                 .experience(Boolean.TRUE)
                 .municipality(Arrays.asList("0180", "0199"))
-                .region(Arrays.asList("14"))
+                .region(Collections.singletonList("14"))
                 .build();
 
         //When:
@@ -67,10 +68,10 @@ public class QueryCreatorServiceTest {
                 .q("java")
                 .offset("0")
                 .limit("50")
-                .country(Arrays.asList("155"))
+                .country(Collections.singletonList("155"))
                 .skill(Arrays.asList("5572", "8181"))
-                .field(Arrays.asList("3"))
-                .extent(Arrays.asList("1"))
+                .field(Collections.singletonList("3"))
+                .extent(Collections.singletonList("1"))
                 .build();
 
         //When:
@@ -89,7 +90,7 @@ public class QueryCreatorServiceTest {
                 .offset("0")
                 .limit("50")
                 .drivinglicence(Arrays.asList("A", "B"))
-                .group(Arrays.asList("3513"))
+                .group(Collections.singletonList("3513"))
                 .occupation(Arrays.asList("2494", "1212"))
                 .parttime(Parttime.builder().min(5).max(95).build())
                 .build();

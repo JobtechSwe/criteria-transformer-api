@@ -16,7 +16,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @EnableSwagger2WebFlux
 public class SwaggerConfig {
 
-    public static final String BASE_PACKAGE = "arbetsformedlingen.criteriatransformerapi.controller";
+    private static final String BASE_PACKAGE = "arbetsformedlingen.criteriatransformerapi.controller";
 
     @Bean
     public Docket api() {

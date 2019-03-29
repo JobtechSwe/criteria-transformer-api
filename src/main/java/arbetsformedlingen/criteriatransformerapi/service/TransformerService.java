@@ -22,8 +22,8 @@ import static org.springframework.util.StringUtils.isEmpty;
 @Service
 public class TransformerService implements ITransformerService {
 
-    private Logger logger = LoggerFactory.getLogger(TransformerService.class);
-    private static DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+    private static final Logger logger = LoggerFactory.getLogger(TransformerService.class);
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 
     @Override
     public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO param) {

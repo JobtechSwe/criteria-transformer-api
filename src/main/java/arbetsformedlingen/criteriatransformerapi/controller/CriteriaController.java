@@ -25,7 +25,7 @@ public class CriteriaController {
     }
 
     @ApiOperation(value = "transform elise criteria to sok-api queryPath")
-    @PostMapping(value = "/transform/querypath")
+    @PostMapping(value = "/transform/query-path")
     public Mono<String> translateToQueryPath(@RequestBody MatchningsparametrarDTO dto) {
         return service.transformToQueryPath(dto);
     }

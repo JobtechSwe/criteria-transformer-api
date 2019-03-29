@@ -12,7 +12,7 @@
 	<artifactId>criteria-transformer-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>criteria-transformer-api</name>
-	<description>Transform elise criterias to sokannonser criterias</description>
+	<description>Transform elise criteria to sokannonser criterias</description>
 
 	<properties>
 		<java.version>1.8</java.version>
