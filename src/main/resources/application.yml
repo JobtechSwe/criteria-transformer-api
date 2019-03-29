@@ -1,0 +1,9 @@
+# ******* DEFAULT *******
+logging:
+  level:
+    arbetsformedlingen: DEBUG
+
+loader:
+  io:
+    token: loaderio-2dbccb6f10b8be6dcf742bff1ecab72a
+---
