@@ -19,3 +19,6 @@ http://localhost:8080
 [stage](https://staging-transformer.dev.services.jtech.se)
 
 [Prod](https://transformer.dev.services.jtech.se)
+
+### Load testing with apache-bench
+    abs -n 100 -c 5 -p criteria-body.json -T 'application/json' http://localhost:8080/transform

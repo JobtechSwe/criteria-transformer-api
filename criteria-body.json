@@ -1,0 +1,99 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "KORKORT",
+        "varde": "6",
+        "namn": "Körkort BE"
+      },
+      {
+        "typ": "YRKE",
+        "varde": "6826",
+        "namn": "Testledare",
+        "egenskaper": [
+          {
+            "typ": "YRKE_ERFARENHET",
+            "varde": "2",
+            "benamning": "Mindre än 1 års erfarenhet"
+          }
+        ]
+      },
+      {
+        "typ": "KOMPETENS",
+        "varde": "5572",
+        "namn": "SQL, programmeringsspråk"
+      },
+      {
+        "typ": "ARBETSOMFATTNING",
+        "varde": "Heltid/Deltid 5-100%",
+        "namn": "Heltid/Deltid 5-100%",
+        "egenskaper": [
+          {
+            "typ": "ARBETSOMFATTNING_MIN",
+            "varde": "5",
+            "benamning": "5"
+          },
+          {
+            "typ": "ARBETSOMFATTNING_MAX",
+            "varde": "100",
+            "benamning": "100"
+          }
+        ]
+      },
+      {
+        "typ": "ANSTALLNINGSTYP",
+        "varde": "4",
+        "namn": "Behovsanställning"
+      },
+      {
+        "typ": "ANSTALLNINGSTYP",
+        "varde": "2",
+        "namn": "Sommarjobb / feriejobb"
+      },
+      {
+        "typ": "ANSTALLNINGSTYP",
+        "varde": "1",
+        "namn": "Vanlig anställning"
+      },
+      {
+        "typ": "FRITEXT",
+        "varde": "sql",
+        "namn": "sql"
+      },
+      {
+        "typ": "LAND",
+        "varde": "155",
+        "namn": "Norge"
+      },
+      {
+        "typ": "LAN",
+        "varde": "14",
+        "namn": "Västra Götalands län"
+      },
+      {
+        "typ": "KOMMUN",
+        "varde": "1415",
+        "namn": "Stenungsund"
+      },
+      {
+        "typ": "YRKESROLL",
+        "varde": "2079",
+        "namn": "Målare"
+      },
+      {
+        "typ": "YRKESGRUPP_ROLL",
+        "varde": "2611",
+        "namn": "Advokater"
+      },
+      {
+        "typ": "YRKESOMRADE_ROLL",
+        "varde": "3",
+        "namn": "Data/IT"
+      }
+    ]
+  }
+}
