@@ -3,7 +3,9 @@ package arbetsformedlingen.criteriatransformerapi.service;
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.KriteriumegenskapDTO;
+import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
+import arbetsformedlingen.criteriatransformerapi.exception.ContentNotAllowedException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
 
 import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.*;
+
 
 public class TransformerServiceTest {
 
@@ -19,6 +23,22 @@ public class TransformerServiceTest {
     @Before
     public void setUp() {
         service = new TransformerService();
+    }
+
+    @Test
+    public void shouldHandleExceptionWhenTransformingFails() {
+        //Given:
+        TransformerService spy = spy(TransformerService.class);
+
+        doThrow(RuntimeException.class).when(spy).transform(any(MatchningsparametrarDTO.class));
+
+        try {
+            //When:
+            spy.transformToCriteria(new MatchningsparametrarDTO());
+        } catch (Exception e) {
+            //Then:
+            assertThat(e.getCause()).isInstanceOf(ContentNotAllowedException.class);
+        }
     }
 
     @Test

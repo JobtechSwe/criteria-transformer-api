@@ -2,6 +2,7 @@ package arbetsformedlingen.criteriatransformerapi.service;
 
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
+import arbetsformedlingen.criteriatransformerapi.exception.QueryCreationException;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +10,9 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.spy;
 
 public class QueryCreatorServiceTest {
 
@@ -17,6 +21,21 @@ public class QueryCreatorServiceTest {
     @Before
     public void setUp() {
         service = new QueryCreatorService();
+    }
+
+    @Test
+    public void shouldHandleExceptionWhenCreationFails() {
+        //Given:
+        QueryCreatorService spy = spy(QueryCreatorService.class);
+        doThrow(RuntimeException.class).when(spy).createQuery(any(Criteria.class));
+
+        //When:
+        try {
+            spy.createQueryParamFor(new Criteria());
+        } catch (Exception e) {
+            //Then:
+            assertThat(e.getCause()).isInstanceOf(QueryCreationException.class);
+        }
     }
 
     @Test

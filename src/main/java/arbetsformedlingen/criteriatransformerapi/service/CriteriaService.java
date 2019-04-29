@@ -9,11 +9,14 @@ import reactor.core.publisher.Mono;
 @Service
 public class CriteriaService implements ICriteriaService {
 
-    @Autowired
     private ITransformerService transformerService;
+    private IQueryCreatorService queryCreatorService;
 
     @Autowired
-    private IQueryCreatorService queryCreatorService;
+    public CriteriaService(ITransformerService transformerService, IQueryCreatorService queryCreatorService) {
+        this.transformerService = transformerService;
+        this.queryCreatorService = queryCreatorService;
+    }
 
     @Override
     public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO param) {
