@@ -82,7 +82,8 @@ public class QueryCreatorServiceTest {
     @Test
     public void shouldCreateQueryParams3() {
         //Given:
-        String expected = "?q=java&offset=0&limit=50&field=3&skill=5572&skill=8181&extent=1&country=155";
+        String expected = "?q=java&offset=0&limit=50&occupation-field=3&skill=5572&skill=8181&worktime-extent=1&country=155";
+
         Criteria criteria = Criteria.builder()
                 .q("java")
                 .offset("0")
@@ -103,7 +104,7 @@ public class QueryCreatorServiceTest {
     @Test
     public void shouldCreateQueryParams4() {
         //Given:
-        String expected = "?q=java&offset=0&limit=50&occupation=2494&occupation=1212&group=3513&parttime.min=5&parttime.max=95&drivinglicence=A&drivinglicence=B";
+        String expected = "?q=java&offset=0&limit=50&occupation-name=2494&occupation-name=1212&occupation-group=3513&parttime.min=5&parttime.max=95&driving-licence=A&driving-licence=B";
         Criteria criteria = Criteria.builder()
                 .q("java")
                 .offset("0")

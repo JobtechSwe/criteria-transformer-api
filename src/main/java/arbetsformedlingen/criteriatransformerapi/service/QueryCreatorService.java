@@ -67,17 +67,17 @@ public class QueryCreatorService implements IQueryCreatorService {
 
         List<String> occupation = criteria.getOccupation();
         if (!isEmpty(occupation)) {
-            builder.queryParam("occupation", occupation.toArray(new Object[occupation.size()]));
+            builder.queryParam("occupation-name", occupation.toArray(new Object[occupation.size()]));
         }
 
         List<String> group = criteria.getGroup();
         if (!isEmpty(group)) {
-            builder.queryParam("group", group.toArray(new Object[group.size()]));
+            builder.queryParam("occupation-group", group.toArray(new Object[group.size()]));
         }
 
         List<String> field = criteria.getField();
         if (!isEmpty(field)) {
-            builder.queryParam("field", field.toArray(new Object[field.size()]));
+            builder.queryParam("occupation-field", field.toArray(new Object[field.size()]));
         }
 
         List<String> skill = criteria.getSkill();
@@ -87,7 +87,7 @@ public class QueryCreatorService implements IQueryCreatorService {
 
         List<String> extent = criteria.getExtent();
         if (!isEmpty(extent)) {
-            builder.queryParam("extent", extent.toArray(new Object[extent.size()]));
+            builder.queryParam("worktime-extent", extent.toArray(new Object[extent.size()]));
         }
 
         Parttime parttime = criteria.getParttime();
@@ -98,12 +98,12 @@ public class QueryCreatorService implements IQueryCreatorService {
 
         List<String> drivinglicence = criteria.getDrivinglicence();
         if (!isEmpty(drivinglicence)) {
-            builder.queryParam("drivinglicence", drivinglicence.toArray(new Object[drivinglicence.size()]));
+            builder.queryParam("driving-licence", drivinglicence.toArray(new Object[drivinglicence.size()]));
         }
 
         List<String> employmenttype = criteria.getEmploymenttype();
         if (!isEmpty(employmenttype)) {
-            builder.queryParam("employmenttype", employmenttype.toArray(new Object[employmenttype.size()]));
+            builder.queryParam("employment-type", employmenttype.toArray(new Object[employmenttype.size()]));
         }
 
         Boolean experience = criteria.getExperience();
