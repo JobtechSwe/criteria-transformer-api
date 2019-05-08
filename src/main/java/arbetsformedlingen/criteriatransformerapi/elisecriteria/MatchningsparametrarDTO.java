@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Builder
@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MatchningsparametrarDTO {
-    protected LocalDateTime franPubliceringsdatum;
-    protected LocalDateTime tillPubliceringsdatum;
+    protected Date franPubliceringsdatum;
+    protected Date tillPubliceringsdatum;
     protected Integer startrad;
     protected Integer maxAntal;
     protected String sorteringsordning;

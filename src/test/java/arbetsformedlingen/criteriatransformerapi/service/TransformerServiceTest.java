@@ -9,7 +9,7 @@ import arbetsformedlingen.criteriatransformerapi.exception.ContentNotAllowedExce
 import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
+import java.util.Calendar;
 
 import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -44,10 +44,10 @@ public class TransformerServiceTest {
     @Test
     public void shouldFormatDate() {
         //Given:
-        String expectedValue = "2012-02-05T00:00:00";
+        String expectedValue = "2012-03-05T00:00:00";
 
         //When:
-        String formattedDate = service.populateDate(getCalendar());
+        String formattedDate = service.populateDate(getCalendar().getTime());
 
         //Then:
         assertThat(formattedDate).isEqualTo(expectedValue);
@@ -167,8 +167,14 @@ public class TransformerServiceTest {
         assertThat(unknown.getEmploymenttype()).isEmpty();
     }
 
-    private LocalDateTime getCalendar() {
-        return LocalDateTime.of(2012, 2, 05, 00, 00, 00);
+    private Calendar getCalendar() {
+        Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(Calendar.YEAR, 2012);
+        cal.set(Calendar.MONTH, 2);
+        cal.set(Calendar.DATE, 5);
+
+        return cal;
     }
 
 }

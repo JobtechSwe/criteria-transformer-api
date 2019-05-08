@@ -1,7 +1,8 @@
 # ******* DEFAULT *******
 logging:
   level:
-    arbetsformedlingen: DEBUG
+    arbetsformedlingen: INFO
+
 
 loader:
   io:
