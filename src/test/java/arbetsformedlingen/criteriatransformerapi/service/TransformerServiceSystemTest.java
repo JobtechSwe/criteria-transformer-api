@@ -345,7 +345,7 @@ public class TransformerServiceSystemTest {
     public void transformYrkesrollFilterDatumToCriteria() throws IOException {
         //Given:
         String expected = "7633";
-        String expectedDate = "2018-11-05T01:00:00";
+        String expectedDate = "2018-11-05T00:00:00";
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-filtrering-datum.json");
 
         //When:
