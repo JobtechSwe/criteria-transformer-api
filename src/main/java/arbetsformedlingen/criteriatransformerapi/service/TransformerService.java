@@ -23,7 +23,9 @@ import static org.springframework.util.StringUtils.isEmpty;
 public class TransformerService implements ITransformerService {
 
     private static final Logger logger = LoggerFactory.getLogger(TransformerService.class);
-    private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+    public static final String WILDCARD_FRITEXT = "**";
+    public static final String EMPTY = "";
+    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 
     @Override
     public Mono<Criteria> transformToCriteria(MatchningsparametrarDTO param) {
@@ -164,13 +166,16 @@ public class TransformerService implements ITransformerService {
     }
 
     protected void populateFritext(Criteria criteria, String value) {
-        if (!isEmpty(value)) {
-            if (isEmpty(criteria.getQ())) {
-                criteria.setQ(value);
-            } else {
-                criteria.setQ(criteria.getQ() + " " + value);
-            }
+        if (value.equals(WILDCARD_FRITEXT)) {
+            value = EMPTY;
         }
+
+        if (isEmpty(criteria.getQ())) {
+            criteria.setQ(value);
+        } else {
+            criteria.setQ(criteria.getQ() + " " + value);
+        }
+
     }
 
     protected void addAnstallningstyp(Criteria criteria, String varde) {

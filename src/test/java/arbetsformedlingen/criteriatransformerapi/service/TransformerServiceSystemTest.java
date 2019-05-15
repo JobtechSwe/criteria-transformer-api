@@ -341,12 +341,11 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getDrivinglicence()).containsExactly(expected);
     }
 
-    @Ignore
     @Test
     public void transformYrkesrollFilterDatumToCriteria() throws IOException {
         //Given:
         String expected = "7633";
-        String expectedDate = "2018-11-05T00:00:00";
+        String expectedDate = "2018-11-05T01:00:00";
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-filtrering-datum.json");
 
         //When:
@@ -410,6 +409,18 @@ public class TransformerServiceSystemTest {
         //Then:
         assertThat(criteria.getOccupation()).containsExactly("6826");
         assertThat(criteria.getMunicipality()).containsExactly("0180");
+    }
+
+    @Test
+    public void transformFritextWildcard() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/fritext-wildcard.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getQ()).isEmpty();
     }
 
     @Test

@@ -123,15 +123,15 @@ public class TransformerServiceTest {
     }
 
     @Test
-    public void shouldNotPopulateFritext() {
+    public void shouldRemoveStarStarFromFritext() {
         //Given:
         Criteria criteria = new Criteria();
 
         //When:
-        service.populateFritext(criteria, "");
+        service.populateFritext(criteria ,"**");
 
         //Then:
-        assertThat(criteria.getQ()).isNull();
+        assertThat(criteria.getQ()).isEmpty();
     }
 
     @Test
