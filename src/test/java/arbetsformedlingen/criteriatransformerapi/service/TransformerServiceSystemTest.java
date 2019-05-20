@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 
@@ -345,7 +344,7 @@ public class TransformerServiceSystemTest {
     public void transformYrkesrollFilterDatumToCriteria() throws IOException {
         //Given:
         String expected = "7633";
-        String expectedDate = "2018-11-05T00:00:00";
+        String expectedDate = "2018-11-05T01:00:00";
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-filtrering-datum.json");
 
         //When:

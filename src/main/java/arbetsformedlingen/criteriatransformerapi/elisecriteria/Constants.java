@@ -35,4 +35,5 @@ public class Constants {
     public static final String HELTID_DELTID = "Heltid/Deltid";
     public static final String VALUE_HELTID = "1";
     public static final String VALUE_DELTID = "2";
+    public static final String STOCKHOLM_TIMEZONE = "Europe/Stockholm";
 }
