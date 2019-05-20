@@ -341,24 +341,6 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
-    public void transformYrkesrollFilterDatumToCriteria() throws IOException {
-        //Given:
-        String expected = "7633";
-        String expectedDate = "2018-11-05T01:00:00";
-        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-filtrering-datum.json");
-
-        //When:
-        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
-
-        //Then:
-        assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
-        assertThat(criteria.getOccupation()).containsExactly(expected);
-
-        String publishedAfter = criteria.getPublishedAfter();
-        assertThat(publishedAfter).isEqualTo(expectedDate);
-    }
-
-    @Test
     public void transformYrkesrollSorteringSistaansokningsdatum() throws IOException {
         //Given:
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesroll-sortering-sistaansokningsdatum.json");
