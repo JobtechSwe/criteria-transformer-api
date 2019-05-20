@@ -79,10 +79,10 @@ pipeline {
             slackSend color: 'good', message: "${GIT_URL}, Branch: ${GIT_BRANCH}, Commit: ${GIT_COMMIT} successfully built to criteria-transformer-api build: ${buildTag}."
         }
         failure {
-            slackSend color: 'bad', channel: '#narval-sokapi', message: "${GIT_URL} ${GIT_BRANCH} ${GIT_COMMIT} failed to build to criteria-transformer-api build ${buildTag}."
+            slackSend color: 'FF0000', channel: '#narval-sokapi', message: "${GIT_URL} ${GIT_BRANCH} ${GIT_COMMIT} failed to build to criteria-transformer-api build ${buildTag}."
         }
         unstable {
-            slackSend color: 'bad', message: "${GIT_URL} ${GIT_BRANCH} ${GIT_COMMIT} unstable build for criteria-transformer-api build ${buildTag}."
+            slackSend color: 'FFFF00', message: "${GIT_URL} ${GIT_BRANCH} ${GIT_COMMIT} unstable build for criteria-transformer-api build ${buildTag}."
         }
     }
 }
