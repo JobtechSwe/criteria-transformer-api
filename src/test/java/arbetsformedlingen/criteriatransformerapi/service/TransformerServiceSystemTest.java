@@ -286,20 +286,6 @@ public class TransformerServiceSystemTest {
         assertThat(criteria).isNotNull();
     }
 
-
-    @Test
-    public void transformDeltidToCriteria() throws IOException {
-        //Given:
-        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/deltid.json");
-
-        //When:
-        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
-
-        //Then:
-        assertThat(criteria.getParttime().getMin()).isEqualTo(5);
-        assertThat(criteria.getParttime().getMax()).isEqualTo(95);
-    }
-
     @Test
     public void transformHeltidDeltidToCriteria() throws IOException {
         //Given:

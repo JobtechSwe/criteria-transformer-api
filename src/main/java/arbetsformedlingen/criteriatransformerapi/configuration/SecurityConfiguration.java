@@ -25,7 +25,8 @@ public class SecurityConfiguration {
         http.authorizeExchange()
                 .anyExchange().authenticated()
                 .and()
-                .httpBasic();
+                .httpBasic()
+                .and().csrf().disable();
         return http.build();
     }
 
