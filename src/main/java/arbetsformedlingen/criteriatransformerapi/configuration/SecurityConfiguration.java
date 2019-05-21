@@ -17,7 +17,7 @@ public class SecurityConfiguration {
     private static final String API_KEY = "api-key";
     private static final String USER = "USER";
 
-    @Value("${API_TOKEN}")
+    @Value("${API_TOKEN:password}")
     private String token;
 
     @Bean
