@@ -2,6 +2,7 @@ package arbetsformedlingen.criteriatransformerapi.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService;
@@ -21,13 +22,24 @@ public class SecurityConfiguration {
     private String token;
 
     @Bean
+    @Profile("prod")
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-        http.authorizeExchange()
+        return http.authorizeExchange()
                 .anyExchange().authenticated()
                 .and()
                 .httpBasic()
-                .and().csrf().disable();
-        return http.build();
+                .and()
+                .csrf().disable()
+                .build();
+    }
+
+    @Bean
+    @Profile("!prod")
+    public SecurityWebFilterChain springSecurityFilterChainTest(ServerHttpSecurity httpSecurity) {
+        return httpSecurity.authorizeExchange().anyExchange().permitAll()
+                .and()
+                .httpBasic().and().csrf().disable()
+                .build();
     }
 
     @Bean
