@@ -40,8 +40,8 @@ public class TransformerService implements ITransformerService {
     @Override
     public Mono<Criteria> transform(MatchningsparametrarDTO param) {
         Criteria criteria = new Criteria();
-        criteria.setLimit(populateValue(param.getMaxAntal()));
-        criteria.setOffset(populateValue(param.getStartrad()));
+        criteria.setLimit(param.getMaxAntal());
+        criteria.setOffset(param.getStartrad());
         criteria.setSort(populateSort(param));
         criteria.setPublishedBefore(populateDate(param.getTillPubliceringsdatum()));
         criteria.setPublishedAfter(populateDate(param.getFranPubliceringsdatum()));
@@ -218,15 +218,6 @@ public class TransformerService implements ITransformerService {
         }
     }
 
-    private String populateValue(Integer value) {
-        try {
-            return String.valueOf(value);
-        } catch (Exception e) {
-            String message = String.format("could not populate value: %s", value);
-            logger.warn(message, e);
-        }
 
-        return null;
-    }
 
 }

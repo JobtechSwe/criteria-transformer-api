@@ -40,12 +40,12 @@ public class QueryCreatorService implements IQueryCreatorService {
             builder.queryParam("q", q);
         }
 
-        String offset = criteria.getOffset();
+        String offset = populateValue(criteria.getOffset());
         if (isNotEmpty(offset)) {
             builder.queryParam("offset", offset);
         }
 
-        String limit = criteria.getLimit();
+        String limit = populateValue(criteria.getLimit());
         if (isNotEmpty(limit)) {
             builder.queryParam("limit", limit);
         }
@@ -145,5 +145,20 @@ public class QueryCreatorService implements IQueryCreatorService {
         LOGGER.debug("created url: {}", url);
 
         return Mono.just(url);
+    }
+
+    private String populateValue(Integer param) {
+        if (param == null) {
+            return null;
+        }
+
+        String value = null;
+        try {
+            value = String.valueOf(param);
+        } catch (Exception e) {
+            String message = String.format("could not populate value: %s", param);
+            LOGGER.warn(message, e);
+        }
+        return value;
     }
 }

@@ -14,8 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Criteria {
     private String q;
-    private String offset;
-    private String limit;
+    private Integer offset;
+    private Integer limit;
     private String sort;
     private List<GeographicCoordinate> geographicCoordinates = new ArrayList<>();
     private String publishedBefore;

@@ -349,7 +349,7 @@ public class TransformerServiceSystemTest {
 
         //Then:
         assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
-        assertThat(criteria.getLimit()).isEqualTo("25");
+        assertThat(criteria.getLimit()).isEqualTo(25);
         assertThat(criteria.getGroup()).containsExactly("5132", "5131", "9413", "5120", "3451", "9411", "9412", "1720");
     }
 
@@ -362,7 +362,7 @@ public class TransformerServiceSystemTest {
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getOffset()).isEqualTo("100");
+        assertThat(criteria.getOffset()).isEqualTo(100);
     }
 
     @Test
@@ -414,8 +414,8 @@ public class TransformerServiceSystemTest {
 
         //Then:
         assertThat(criteria.getQ()).isEqualTo("sql");
-        assertThat(criteria.getOffset()).isEqualTo("0");
-        assertThat(criteria.getLimit()).isEqualTo("25");
+        assertThat(criteria.getOffset()).isEqualTo(0);
+        assertThat(criteria.getLimit()).isEqualTo(25);
         assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
 
         List<GeographicCoordinate> geographicCoordinates = criteria.getGeographicCoordinates();

@@ -44,8 +44,8 @@ public class QueryCreatorServiceTest {
         String expected = "?q=java&offset=0&limit=25&sort=relevance&published-before=2019-01-22T00:00:00";
         Criteria criteria = Criteria.builder()
                 .q("java")
-                .offset("0")
-                .limit("25")
+                .offset(0)
+                .limit(25)
                 .sort("relevance")
                 .publishedBefore("2019-01-22T00:00:00")
                 .build();
@@ -63,8 +63,8 @@ public class QueryCreatorServiceTest {
         String expected = "?q=java&offset=0&limit=50&sort=relevance&published-after=2019-01-22T00:00:00&experience=true&municipality=0180&municipality=0199&region=14";
         Criteria criteria = Criteria.builder()
                 .q("java")
-                .offset("0")
-                .limit("50")
+                .offset(0)
+                .limit(50)
                 .sort("relevance")
                 .publishedAfter("2019-01-22T00:00:00")
                 .experience(Boolean.TRUE)
@@ -86,8 +86,8 @@ public class QueryCreatorServiceTest {
 
         Criteria criteria = Criteria.builder()
                 .q("java")
-                .offset("0")
-                .limit("50")
+                .offset(0)
+                .limit(50)
                 .country(Collections.singletonList("155"))
                 .skill(Arrays.asList("5572", "8181"))
                 .field(Collections.singletonList("3"))
@@ -107,8 +107,8 @@ public class QueryCreatorServiceTest {
         String expected = "?q=java&offset=0&limit=50&occupation-name=2494&occupation-name=1212&occupation-group=3513&parttime.min=5&parttime.max=95&driving-licence=A&driving-licence=B";
         Criteria criteria = Criteria.builder()
                 .q("java")
-                .offset("0")
-                .limit("50")
+                .offset(0)
+                .limit(50)
                 .drivinglicence(Arrays.asList("A", "B"))
                 .group(Collections.singletonList("3513"))
                 .occupation(Arrays.asList("2494", "1212"))
