@@ -122,4 +122,22 @@ public class QueryCreatorServiceTest {
         assertThat(queryParameter).isEqualTo(expected);
     }
 
+    @Test
+    public void shouldHaveLanguageASQueryParam() {
+        //Given:
+        String expected = "?q=java&offset=0&limit=50&language=502";
+        Criteria criteria = Criteria.builder()
+                .q("java")
+                .offset(0)
+                .limit(50)
+                .language(Arrays.asList("502"))
+                .build();
+
+        //When:
+        String queryParameter = service.createQueryParamFor(criteria).block();
+
+        //Then:
+        assertThat(queryParameter).isEqualTo(expected);
+    }
+
 }

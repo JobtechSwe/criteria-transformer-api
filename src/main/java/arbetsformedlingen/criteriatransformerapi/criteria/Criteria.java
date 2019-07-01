@@ -27,6 +27,7 @@ public class Criteria {
     private List<String> skill = new ArrayList<>();
     private List<String> field = new ArrayList<>();
     private List<String> extent = new ArrayList<>();
+    private List<String> language = new ArrayList<>();
     private List<String> drivinglicence = new ArrayList<>();
     private List<String> employmenttype = new ArrayList<>();
     private List<String> group = new ArrayList<>();

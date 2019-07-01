@@ -1,0 +1,27 @@
+{
+  "franPubliceringsdatum": "2019-06-28T07:27:30.346Z",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "egenskaper": [
+          {
+            "typ": "SPRAK_NIVA",
+            "varde": "2"
+          }
+        ],
+        "typ": "SPRAK",
+        "varde": "502"
+      }
+    ],
+    "searchPackages": [
+      {
+        "key": "string",
+        "title": "string"
+      }
+    ]
+  },
+  "maxAntal": 0,
+  "sorteringsordning": "string",
+  "startrad": 0,
+  "tillPubliceringsdatum": "2019-06-28T07:27:30.347Z"
+}

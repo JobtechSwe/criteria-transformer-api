@@ -21,6 +21,7 @@ public class Constants {
     public static final String YRKESOMRADE_ROLL = "YRKESOMRADE_ROLL";
     public static final String YRKESGRUPP_ROLL = "YRKESGRUPP_ROLL";
 
+    public static final String SPRAK = "SPRAK";
     public static final String FRITEXT = "FRITEXT";
     public static final String ANSTALLNINGSTYP = "ANSTALLNINGSTYP";
     public static final String KORKORT = "KORKORT";

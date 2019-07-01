@@ -403,6 +403,17 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getRegion()).containsExactly("90");
     }
 
+    @Test
+    public void transformLanguageToCriteria() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/language.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getLanguage()).containsExactly("502");
+    }
 
     @Test
     public void transformBigComboToCriteria() throws IOException {

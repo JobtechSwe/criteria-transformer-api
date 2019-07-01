@@ -104,6 +104,9 @@ public class TransformerService implements ITransformerService {
                 case YRKESGRUPP_ROLL:
                     criteria.getGroup().add(value);
                     break;
+                case SPRAK:
+                    criteria.getLanguage().add(value);
+                    break;
                 case FRITEXT:
                     populateFritext(criteria, value);
                     break;

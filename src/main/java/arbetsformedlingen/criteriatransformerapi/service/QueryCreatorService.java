@@ -126,6 +126,11 @@ public class QueryCreatorService implements IQueryCreatorService {
             builder.queryParam("country", country.toArray(new Object[country.size()]));
         }
 
+        List<String> language = criteria.getLanguage();
+        if (!isEmpty(language)) {
+            builder.queryParam("language", language.toArray(new Object[language.size()]));
+        }
+
         if(!isEmpty(criteria.getGeographicCoordinates())) {
             List<String> radius = new ArrayList<>();
             for (Criteria.GeographicCoordinate coordinate : criteria.getGeographicCoordinates()) {
