@@ -18,6 +18,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.VALUE_DELTID;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TransformerServiceSystemTest {
@@ -447,6 +448,20 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getOccupation()).containsExactly("6826", "2079");
         assertThat(criteria.getParttime().getMin()).isEqualTo(5);
         assertThat(criteria.getParttime().getMax()).isEqualTo(100);
+    }
+
+    @Test
+    public void shouldPopulateExtendAndPartTime() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/deltid-mobile.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getParttime().getMin()).isEqualTo(1);
+        assertThat(criteria.getParttime().getMax()).isEqualTo(99);
+        assertThat(criteria.getExtent().get(0)).isEqualTo(VALUE_DELTID);
     }
 
     private MatchningsparametrarDTO getParamsFor(String filePath) throws IOException {

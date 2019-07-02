@@ -1,0 +1,27 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "ARBETSOMFATTNING",
+        "varde": "",
+        "namn": "",
+        "egenskaper": [
+          {
+            "typ": "ARBETSOMFATTNING_MIN",
+            "varde": "1",
+            "benamning": "1"
+          },
+          {
+            "typ": "ARBETSOMFATTNING_MAX",
+            "varde": "99",
+            "benamning": "99"
+          }
+        ]
+      }
+    ]
+  }
+}
