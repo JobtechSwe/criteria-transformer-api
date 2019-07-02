@@ -22,7 +22,7 @@ public class SecurityConfiguration {
     private String token;
 
     @Bean
-    @Profile("prod")
+    @Profile({"prod", "stage"})
     public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         return http.authorizeExchange()
                 .anyExchange().authenticated()
@@ -34,7 +34,7 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    @Profile("!prod")
+    @Profile("default")
     public SecurityWebFilterChain springSecurityFilterChainTest(ServerHttpSecurity httpSecurity) {
         return httpSecurity.authorizeExchange().anyExchange().permitAll()
                 .and()
