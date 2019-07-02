@@ -131,7 +131,6 @@ public class TransformerService implements ITransformerService {
                 if (criteria.getParttime().getMin() < 100 && criteria.getParttime().getMin() > 0 &&
                         criteria.getParttime().getMax() < 100 && criteria.getParttime().getMax() > 0) {
                     criteria.getExtent().add(VALUE_DELTID);
-
                     //NEED TO NULL THIS OUT BECAUSE DATA FROM SOURCE USES ONLY EXTENT VALUE
                     criteria.setParttime(null);
                 }

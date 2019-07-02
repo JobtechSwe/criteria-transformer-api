@@ -459,8 +459,7 @@ public class TransformerServiceSystemTest {
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getParttime().getMin()).isEqualTo(1);
-        assertThat(criteria.getParttime().getMax()).isEqualTo(99);
+        assertThat(criteria.getParttime()).isNull();
         assertThat(criteria.getExtent().get(0)).isEqualTo(VALUE_DELTID);
     }
 
