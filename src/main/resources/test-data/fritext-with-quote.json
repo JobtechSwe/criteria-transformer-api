@@ -1,0 +1,15 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "FRITEXT",
+        "varde": "\"testledare\"",
+        "namn": "testledare"
+      }
+    ]
+  }
+}

@@ -135,6 +135,15 @@ public class TransformerServiceTest {
     }
 
     @Test
+    public void shouldRemoveBrackets() {
+        //Given:
+
+        //When:
+
+        //Then:
+    }
+
+    @Test
     public void shouldAddAnstallningstypFullTime() {
         //Given:
         Criteria fullTime = new Criteria();

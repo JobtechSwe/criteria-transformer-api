@@ -392,6 +392,19 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
+    public void filterAwayQuoteFromFritext() throws IOException {
+        //Given:
+        String expected = "testledare";
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/fritext-with-quote.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getQ()).isEqualTo(expected);
+    }
+
+    @Test
     public void transformYrkesgruppOscpecificerArbetsortToCriteria() throws IOException {
         //Given:
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/yrkesgrupp-ospec-arbetsort.json");
