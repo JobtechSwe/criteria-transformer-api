@@ -149,7 +149,6 @@ public class TransformerService implements ITransformerService {
         } else if (value.startsWith(HELTID_DELTID)) {
             criteria.getExtent().add(VALUE_HELTID);
             criteria.getExtent().add(VALUE_DELTID);
-            criteria.setParttime(populateParttime(profileCriteria));
         }
     }
 

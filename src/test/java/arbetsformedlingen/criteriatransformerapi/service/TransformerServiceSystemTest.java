@@ -296,8 +296,7 @@ public class TransformerServiceSystemTest {
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getParttime().getMin()).isEqualTo(5);
-        assertThat(criteria.getParttime().getMax()).isEqualTo(100);
+        assertThat(criteria.getParttime()).isNull();
         assertThat(criteria.getExtent()).containsExactly("1", "2");
     }
 
@@ -459,8 +458,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getEmploymenttype()).containsExactly("4", "2", "1");
         assertThat(criteria.getGroup()).containsExactly("2611");
         assertThat(criteria.getOccupation()).containsExactly("6826", "2079");
-        assertThat(criteria.getParttime().getMin()).isEqualTo(5);
-        assertThat(criteria.getParttime().getMax()).isEqualTo(100);
+        assertThat(criteria.getParttime()).isNull();
     }
 
     @Test
