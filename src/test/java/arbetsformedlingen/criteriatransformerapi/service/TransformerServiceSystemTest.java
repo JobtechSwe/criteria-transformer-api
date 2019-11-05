@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.VALUE_DELTID;
@@ -296,7 +297,7 @@ public class TransformerServiceSystemTest {
 
         //Then:
         assertThat(criteria.getParttime()).isNull();
-        assertThat(criteria.getExtent()).containsExactly("1", "2");
+        assertThat(criteria.getExtent()).isEqualTo(new ArrayList<>());
     }
 
     @Test
@@ -452,7 +453,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getCountry()).containsExactly("155");
         assertThat(criteria.getSkill()).containsExactly("5572");
         assertThat(criteria.getField()).containsExactly("3");
-        assertThat(criteria.getExtent()).containsExactly("1", "2");
+        assertThat(criteria.getExtent()).isEqualTo(new ArrayList<>());
         assertThat(criteria.getDrivinglicence()).containsExactly("6");
         assertThat(criteria.getEmploymenttype()).containsExactly("4", "2", "1");
         assertThat(criteria.getGroup()).containsExactly("2611");

@@ -120,7 +120,7 @@ public class TransformerService implements ITransformerService {
                     addAnstallningstyp(criteria, value);
                     break;
                 case ARBETSOMFATTNING:
-                    populateExtent(criteria, value, kriteriumDTO);
+                    populateExtent(criteria, value);
                     break;
                 default:
                     logger.error("could not handle criteria type '{}'", type);
@@ -141,14 +141,13 @@ public class TransformerService implements ITransformerService {
         }
     }
 
-    private void populateExtent(Criteria criteria, String value, ProfilKriteriumDTO profileCriteria) {
+    private void populateExtent(Criteria criteria, String value) {
         if (ENDAST_HELTID.equalsIgnoreCase(value)) {
             criteria.getExtent().add(VALUE_HELTID);
         } else if (value.startsWith(DELTID)) {
             criteria.getExtent().add(VALUE_DELTID);
         } else if (value.startsWith(HELTID_DELTID)) {
-            criteria.getExtent().add(VALUE_HELTID);
-            criteria.getExtent().add(VALUE_DELTID);
+            // No extent is added since this is the same query as "get all ads"
         }
     }
 
