@@ -19,8 +19,8 @@ import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.
 public class MatchningsparametrarDTO {
     @JsonFormat(timezone = STOCKHOLM_TIMEZONE)
     protected Date franPubliceringsdatum;
-    protected Date tillPubliceringsdatum;
     @JsonFormat(timezone = STOCKHOLM_TIMEZONE)
+    protected Date tillPubliceringsdatum;
     protected Integer startrad;
     protected Integer maxAntal;
     protected String sorteringsordning;
