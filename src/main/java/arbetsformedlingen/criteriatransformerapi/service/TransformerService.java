@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.*;
@@ -56,6 +57,7 @@ public class TransformerService implements ITransformerService {
         String formattedDate = null;
         if (date != null) {
             try {
+                df.setTimeZone(TimeZone.getTimeZone("Europe/Stockholm"));
                 formattedDate = df.format(date);
             } catch (Exception e) {
                 String message = String.format("Could not populate date: %s", date);
