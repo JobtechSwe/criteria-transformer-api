@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
 import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -177,7 +178,7 @@ public class TransformerServiceTest {
     }
 
     private Calendar getCalendar() {
-        Calendar cal = Calendar.getInstance();
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Stockholm"));
         cal.clear();
         cal.set(Calendar.YEAR, 2012);
         cal.set(Calendar.MONTH, 2);
