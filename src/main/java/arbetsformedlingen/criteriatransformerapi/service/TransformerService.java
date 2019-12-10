@@ -6,6 +6,7 @@ import arbetsformedlingen.criteriatransformerapi.criteria.Parttime;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.ProfilKriteriumDTO;
 import arbetsformedlingen.criteriatransformerapi.exception.ContentNotAllowedException;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.
 import static org.springframework.util.StringUtils.isEmpty;
 
 @Service
+@Slf4j
 public class TransformerService implements ITransformerService {
 
     private static final Logger logger = LoggerFactory.getLogger(TransformerService.class);
@@ -57,8 +59,10 @@ public class TransformerService implements ITransformerService {
         String formattedDate = null;
         if (date != null) {
             try {
+                log.info("date: " + date);
                 df.setTimeZone(TimeZone.getTimeZone("Europe/Stockholm"));
                 formattedDate = df.format(date);
+                log.info("formatted-date: " + formattedDate);
             } catch (Exception e) {
                 String message = String.format("Could not populate date: %s", date);
                 logger.warn(message, e);

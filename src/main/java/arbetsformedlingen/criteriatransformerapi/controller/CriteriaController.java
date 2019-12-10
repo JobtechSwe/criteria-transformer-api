@@ -5,6 +5,7 @@ import arbetsformedlingen.criteriatransformerapi.elisecriteria.Matchningsparamet
 import arbetsformedlingen.criteriatransformerapi.service.ICriteriaService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @Api(value = "/transform")
+@Slf4j
 public class CriteriaController {
 
     @Autowired
@@ -21,7 +23,10 @@ public class CriteriaController {
     @ApiOperation(value = "transform elise criteria to sok-api criteria")
     @PostMapping(value = "/transform", produces = "application/json")
     public Mono<Criteria> translateToSokApiCriteria(@RequestBody MatchningsparametrarDTO dto) {
-        return service.transformToCriteria(dto);
+        log.info("incoming message: " + dto);
+        Mono<Criteria> criteriaMono = service.transformToCriteria(dto);
+        log.info("outgoing messge:" + criteriaMono);
+        return criteriaMono;
     }
 
     @ApiOperation(value = "transform elise criteria to sok-api queryPath")
