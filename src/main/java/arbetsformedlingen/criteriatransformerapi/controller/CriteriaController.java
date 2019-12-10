@@ -23,9 +23,7 @@ public class CriteriaController {
     @ApiOperation(value = "transform elise criteria to sok-api criteria")
     @PostMapping(value = "/transform", produces = "application/json")
     public Mono<Criteria> translateToSokApiCriteria(@RequestBody MatchningsparametrarDTO dto) {
-        log.info("incoming message: " + dto);
         Mono<Criteria> criteriaMono = service.transformToCriteria(dto);
-        log.info("outgoing messge:" + criteriaMono);
         return criteriaMono;
     }
 

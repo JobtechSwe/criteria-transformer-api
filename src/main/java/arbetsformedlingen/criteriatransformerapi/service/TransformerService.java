@@ -59,10 +59,8 @@ public class TransformerService implements ITransformerService {
         String formattedDate = null;
         if (date != null) {
             try {
-                log.info("date: " + date);
                 df.setTimeZone(TimeZone.getTimeZone("Europe/Stockholm"));
                 formattedDate = df.format(date);
-                log.info("formatted-date: " + formattedDate);
             } catch (Exception e) {
                 String message = String.format("Could not populate date: %s", date);
                 logger.warn(message, e);
