@@ -31,10 +31,12 @@ public class Constants {
     public static final String SORTERINGSORDNING_RELEVANS = "RELEVANS";
     public static final String SORTERINGSORDNING_DATUM = "DATUM";
     public static final String SORTERINGSORDNING_SISTAANSOKNINGSDATUM = "SISTAANSOKNINGSDATUM";
-    public static final String ENDAST_HELTID = "Endast Heltid";
-    public static final String DELTID = "Deltid";
-    public static final String HELTID_DELTID = "Heltid/Deltid";
-    public static final String VALUE_HELTID = "1";
-    public static final String VALUE_DELTID = "2";
+
+    public static final String ENDAST_HELTID = "6YE1_gAC_R2G";
+    public static final String DELTID = "947z_JGS_Uk2";
+
+    public static final String LEGACY_ENDAST_HELTID = "Endast Heltid";
+    public static final String LEGACY_DELTID = "Deltid";
+
     public static final String STOCKHOLM_TIMEZONE = "Europe/Stockholm";
 }

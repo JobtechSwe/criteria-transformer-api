@@ -11,6 +11,7 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -18,7 +19,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.VALUE_DELTID;
+import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.DELTID;
+import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.ENDAST_HELTID;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TransformerServiceSystemTest {
@@ -265,15 +267,13 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformEndastHeltidToCriteria() throws IOException {
         //Given:
-        String expected = "1";
-
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/endast-heltid.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getExtent()).contains(expected);
+        assertThat(criteria.getExtent()).contains(ENDAST_HELTID);
     }
 
     @Test
@@ -471,7 +471,7 @@ public class TransformerServiceSystemTest {
 
         //Then:
         assertThat(criteria.getParttime()).isNull();
-        assertThat(criteria.getExtent().get(0)).isEqualTo(VALUE_DELTID);
+        assertThat(criteria.getExtent().get(0)).isEqualTo(DELTID);
     }
 
     private MatchningsparametrarDTO getParamsFor(String filePath) throws IOException {

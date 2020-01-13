@@ -134,7 +134,7 @@ public class TransformerService implements ITransformerService {
                 criteria.setParttime(populateParttime(kriteriumDTO));
                 if (criteria.getParttime().getMin() < 100 && criteria.getParttime().getMin() > 0 &&
                         criteria.getParttime().getMax() < 100 && criteria.getParttime().getMax() > 0) {
-                    criteria.getExtent().add(VALUE_DELTID);
+                    criteria.getExtent().add(DELTID);
                     //NEED TO NULL THIS OUT BECAUSE DATA FROM SOURCE USES ONLY EXTENT VALUE
                     criteria.setParttime(null);
                 }
@@ -146,12 +146,10 @@ public class TransformerService implements ITransformerService {
     }
 
     private void populateExtent(Criteria criteria, String value) {
-        if (ENDAST_HELTID.equalsIgnoreCase(value)) {
-            criteria.getExtent().add(VALUE_HELTID);
-        } else if (value.startsWith(DELTID)) {
-            criteria.getExtent().add(VALUE_DELTID);
-        } else if (value.startsWith(HELTID_DELTID)) {
-            // No extent is added since this is the same query as "get all ads"
+        if (LEGACY_ENDAST_HELTID.equalsIgnoreCase(value) || ENDAST_HELTID.equalsIgnoreCase(value)) {
+            criteria.getExtent().add(ENDAST_HELTID);
+        } else if (value.startsWith(LEGACY_DELTID) || DELTID.equalsIgnoreCase(value)) {
+            criteria.getExtent().add(DELTID);
         }
     }
 
