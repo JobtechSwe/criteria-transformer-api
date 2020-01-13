@@ -12,7 +12,7 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
+import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -136,15 +136,6 @@ public class TransformerServiceTest {
     }
 
     @Test
-    public void shouldRemoveBrackets() {
-        //Given:
-
-        //When:
-
-        //Then:
-    }
-
-    @Test
     public void shouldAddAnstallningstypFullTime() {
         //Given:
         Criteria fullTime = new Criteria();
@@ -153,28 +144,16 @@ public class TransformerServiceTest {
         Criteria foregin = new Criteria();
 
         //When:
-        service.addAnstallningstyp(fullTime, FULL_TIME);
+        service.addAnstallningstyp(fullTime, VANLIG_ANSTALLNING);
         service.addAnstallningstyp(summerJob, SUMMER_JOB);
         service.addAnstallningstyp(behov, BEHOVSANSTALLNING);
         service.addAnstallningstyp(foregin, FOREGIN);
 
         //Then:
-        assertThat(fullTime.getEmploymenttype()).containsExactly(FULL_TIME);
+        assertThat(fullTime.getEmploymenttype()).containsExactly(VANLIG_ANSTALLNING);
         assertThat(summerJob.getEmploymenttype()).containsExactly(SUMMER_JOB);
         assertThat(behov.getEmploymenttype()).containsExactly(BEHOVSANSTALLNING);
         assertThat(foregin.getEmploymenttype()).containsExactly(FOREGIN);
-    }
-
-    @Test
-    public void shouldNotAddAnstallningstypFullTime() {
-        //Given:
-        Criteria unknown = new Criteria();
-
-        //When:
-        service.addAnstallningstyp(unknown, "190");
-
-        //Then:
-        assertThat(unknown.getEmploymenttype()).isEmpty();
     }
 
     private Calendar getCalendar() {

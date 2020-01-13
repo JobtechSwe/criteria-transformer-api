@@ -39,4 +39,12 @@ public class Constants {
     public static final String LEGACY_DELTID = "Deltid";
 
     public static final String STOCKHOLM_TIMEZONE = "Europe/Stockholm";
+
+    public static final String VANLIG_ANSTALLNING = "PFZr_Syz_cUq";
+    public static final String SUMMER_JOB = "Jh8f_q9J_pbJ";
+    public static final String FOREGIN = "9Wuo_2Yb_36E";
+    public static final String BEHOVSANSTALLNING = "1paU_aCR_nGn";
+    public static final String RELEVANCE = "relevance";
+    public static final String PUBDATE_DESC = "pubdate-desc";
+    public static final String APPLYDATE_ASC = "applydate-asc";
 }

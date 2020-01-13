@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import static arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue.*;
 import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.*;
 import static org.springframework.util.StringUtils.isEmpty;
 
@@ -199,9 +198,7 @@ public class TransformerService implements ITransformerService {
     }
 
     protected void addAnstallningstyp(Criteria criteria, String varde) {
-        if (FULL_TIME.equals(varde) || SUMMER_JOB.equals(varde) || BEHOVSANSTALLNING.equals(varde) || FOREGIN.equals(varde)) {
-            criteria.getEmploymenttype().add(varde);
-        }
+        criteria.getEmploymenttype().add(varde);
     }
 
     private void addGeoInfo(Criteria criteria, ProfilKriteriumDTO kriteriumDTO) {

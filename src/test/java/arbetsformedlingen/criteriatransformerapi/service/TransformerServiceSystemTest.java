@@ -2,7 +2,6 @@ package arbetsformedlingen.criteriatransformerapi.service;
 
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria;
 import arbetsformedlingen.criteriatransformerapi.criteria.Criteria.GeographicCoordinate;
-import arbetsformedlingen.criteriatransformerapi.criteria.CriteriaTypeValue;
 import arbetsformedlingen.criteriatransformerapi.elisecriteria.MatchningsparametrarDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -19,8 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.DELTID;
-import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.ENDAST_HELTID;
+import static arbetsformedlingen.criteriatransformerapi.elisecriteria.Constants.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TransformerServiceSystemTest {
@@ -211,57 +209,49 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformVanligAnstallningToCriteria() throws IOException {
         //Given:
-        String expected = "1";
-
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/vanlig-anstallning.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getEmploymenttype()).contains(expected);
+        assertThat(criteria.getEmploymenttype()).contains(VANLIG_ANSTALLNING);
     }
 
     @Test
     public void transformSommarjobbToCriteria() throws IOException {
         //Given:
-        String expected = "2";
-
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/sommarjobb.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getEmploymenttype()).contains(expected);
+        assertThat(criteria.getEmploymenttype()).contains(SUMMER_JOB);
     }
 
     @Test
     public void transformBehovsanstallningToCriteria() throws IOException {
         //Given:
-        String expected = "4";
-
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/behovsanstallning.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getEmploymenttype()).contains(expected);
+        assertThat(criteria.getEmploymenttype()).contains(BEHOVSANSTALLNING);
     }
 
     @Test
     public void transformUtlandJobbToCriteria() throws IOException {
         //Given:
-        String expected = "3";
-
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/utlandsJobb.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getEmploymenttype()).contains(expected);
+        assertThat(criteria.getEmploymenttype()).contains(FOREGIN);
     }
 
     @Test
@@ -347,7 +337,7 @@ public class TransformerServiceSystemTest {
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.APPLYDATE_ASC);
+        assertThat(criteria.getSort()).isEqualTo(APPLYDATE_ASC);
         assertThat(criteria.getOccupation()).containsExactly("7633");
     }
 
@@ -360,7 +350,7 @@ public class TransformerServiceSystemTest {
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
+        assertThat(criteria.getSort()).isEqualTo(RELEVANCE);
         assertThat(criteria.getLimit()).isEqualTo(25);
         assertThat(criteria.getGroup()).containsExactly("5132", "5131", "9413", "5120", "3451", "9411", "9412", "1720");
     }
@@ -452,7 +442,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getQ()).isEqualTo("sql");
         assertThat(criteria.getOffset()).isEqualTo(0);
         assertThat(criteria.getLimit()).isEqualTo(25);
-        assertThat(criteria.getSort()).isEqualTo(CriteriaTypeValue.RELEVANCE);
+        assertThat(criteria.getSort()).isEqualTo(RELEVANCE);
 
         List<GeographicCoordinate> geographicCoordinates = criteria.getGeographicCoordinates();
         assertThat(geographicCoordinates).isEmpty();
@@ -467,7 +457,7 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getField()).containsExactly("3");
         assertThat(criteria.getExtent()).isEqualTo(new ArrayList<>());
         assertThat(criteria.getDrivinglicence()).containsExactly("6");
-        assertThat(criteria.getEmploymenttype()).containsExactly("4", "2", "1");
+        assertThat(criteria.getEmploymenttype()).containsExactly(BEHOVSANSTALLNING, SUMMER_JOB, VANLIG_ANSTALLNING);
         assertThat(criteria.getGroup()).containsExactly("2611");
         assertThat(criteria.getOccupation()).containsExactly("6826", "2079");
         assertThat(criteria.getParttime()).isNull();
