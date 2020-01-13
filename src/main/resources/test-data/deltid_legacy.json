@@ -7,18 +7,18 @@
     "profilkriterier": [
       {
         "typ": "ARBETSOMFATTNING",
-        "varde": "6YE1_gAC_R2G",
-        "namn": "Endast Heltid",
+        "varde": "Deltid 5-95%",
+        "namn": "Deltid 5-95%",
         "egenskaper": [
           {
             "typ": "ARBETSOMFATTNING_MIN",
-            "varde": "100",
-            "benamning": "100"
+            "varde": "5",
+            "benamning": "5"
           },
           {
             "typ": "ARBETSOMFATTNING_MAX",
-            "varde": "100",
-            "benamning": "100"
+            "varde": "95",
+            "benamning": "95"
           }
         ]
       }

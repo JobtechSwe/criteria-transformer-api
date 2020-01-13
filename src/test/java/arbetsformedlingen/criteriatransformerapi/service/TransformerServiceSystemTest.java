@@ -265,6 +265,18 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
+    public void transformLegacyEndastHeltidToCriteria() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/endast-heltid_legacy.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getExtent()).contains(ENDAST_HELTID);
+    }
+
+    @Test
     public void transformEndastHeltidToCriteria() throws IOException {
         //Given:
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/endast-heltid.json");
@@ -465,6 +477,32 @@ public class TransformerServiceSystemTest {
     public void shouldPopulateExtendAndPartTime() throws IOException {
         //Given:
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/deltid-mobile.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getParttime()).isNull();
+        assertThat(criteria.getExtent().get(0)).isEqualTo(DELTID);
+    }
+
+    @Test
+    public void shouldPopulateDeltidLegacy() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/deltid_legacy.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getParttime()).isNull();
+        assertThat(criteria.getExtent().get(0)).isEqualTo(DELTID);
+    }
+
+    @Test
+    public void shouldPopulateDeltid() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/deltid.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
