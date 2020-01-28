@@ -154,7 +154,7 @@ public class TransformerService implements ITransformerService {
 
 
     private void populateExperience(Criteria criteria, String value) {
-        if ("1".equals(value)) {
+        if (INGEN_ERFARENHET_LEGACY.equals(value) || INGEN_ERFARENHET.equals(value)) {
             criteria.setExperience(false);
         }
     }

@@ -38,6 +38,9 @@ public class Constants {
     public static final String LEGACY_ENDAST_HELTID = "Endast Heltid";
     public static final String LEGACY_DELTID = "Deltid";
 
+    public static final String INGEN_ERFARENHET = "hWL8_gSd_TzP";
+    public static final String INGEN_ERFARENHET_LEGACY = "1";
+
     public static final String STOCKHOLM_TIMEZONE = "Europe/Stockholm";
 
     public static final String VANLIG_ANSTALLNING = "PFZr_Syz_cUq";

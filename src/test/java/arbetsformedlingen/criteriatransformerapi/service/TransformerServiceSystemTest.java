@@ -502,6 +502,18 @@ public class TransformerServiceSystemTest {
         assertThat(criteria.getExtent().get(0)).isEqualTo(DELTID);
     }
 
+    @Test
+    public void transformIngenErfarenhetWithConceptIdToCriteria() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/IngenErfarenhetWithConceptId.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getExperience()).isFalse();
+    }
+
     private MatchningsparametrarDTO getParamsFor(String filePath) throws IOException {
         File file = new ClassPathResource(filePath).getFile();
         ObjectMapper mapper = new ObjectMapper();
