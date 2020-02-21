@@ -33,6 +33,7 @@ public class Criteria {
     private List<String> group = new ArrayList<>();
     private List<String> occupation = new ArrayList<>();
     private Parttime parttime;
+    private Boolean drivingLicenceRequired;
 
     @Data
     @Builder

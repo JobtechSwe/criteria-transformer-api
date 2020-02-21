@@ -119,6 +119,9 @@ public class TransformerService implements ITransformerService {
                 case INGEN_EFTERFRAGAD_YRKESERFARENHET:
                     populateExperience(criteria, value);
                     break;
+                case KORTKORTSKRAV:
+                    populateDrivingLicenceRequired(criteria, value);
+                    break;
                 case ANSTALLNINGSTYP:
                     addAnstallningstyp(criteria, value);
                     break;
@@ -141,6 +144,18 @@ public class TransformerService implements ITransformerService {
                 String message = String.format("Could not populate arbetsomfattning for criteria: %s", kriteriumDTO);
                 logger.warn(message, e);
             }
+        }
+    }
+
+
+    /**
+     * @param criteria
+     * @param value (value == 1 driving-licence not required,
+     *               value == 2 driving-licence required)
+     */
+    private void populateDrivingLicenceRequired(Criteria criteria, String value) {
+        if ("1".equals(value)) {
+            criteria.setDrivingLicenceRequired(false);
         }
     }
 

@@ -43,6 +43,18 @@ public class TransformerServiceSystemTest {
     }
 
     @Test
+    public void transformKRAVPAKORKORTToCriteria() throws IOException {
+        //Given:
+        MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/korkortskrav.json");
+
+        //When:
+        Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
+
+        //Then:
+        assertThat(criteria.getDrivingLicenceRequired()).isFalse();
+    }
+
+    @Test
     public void transformYrkesOmradeToCriteria() throws IOException {
         //Given:
         String expected = "3";

@@ -1,0 +1,15 @@
+{
+  "startrad": 0,
+  "maxAntal": 25,
+  "sorteringsordning": "RELEVANS",
+  "franPubliceringsdatum": "",
+  "matchningsprofil": {
+    "profilkriterier": [
+      {
+        "typ": "KORTKORTSKRAV",
+        "varde": "1",
+        "namn": "inget krav på körkort"
+      }
+    ]
+  }
+}

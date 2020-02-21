@@ -27,6 +27,7 @@ public class Constants {
     public static final String KORKORT = "KORKORT";
     public static final String INGEN_EFTERFRAGAD_YRKESERFARENHET = "INGEN_EFTERFRAGAD_YRKESERFARENHET";
     public static final String ARBETSOMFATTNING ="ARBETSOMFATTNING";
+    public static final String KORTKORTSKRAV = "KORTKORTSKRAV";
 
     public static final String SORTERINGSORDNING_RELEVANS = "RELEVANS";
     public static final String SORTERINGSORDNING_DATUM = "DATUM";
