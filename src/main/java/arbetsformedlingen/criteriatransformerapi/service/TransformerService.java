@@ -199,11 +199,6 @@ public class TransformerService implements ITransformerService {
             value = EMPTY;
         }
 
-        //removes quote around string
-        if (value.startsWith("\"") || value.endsWith("\"")) {
-            value = value.replaceAll("^\"|\"$", "");
-        }
-
         if (isEmpty(criteria.getQ())) {
             criteria.setQ(value);
         } else {

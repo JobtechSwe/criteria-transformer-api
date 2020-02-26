@@ -407,7 +407,7 @@ public class TransformerServiceSystemTest {
     @Test
     public void filterAwayQuoteFromFritext() throws IOException {
         //Given:
-        String expected = "testledare";
+        String expected = "\"testledare\"";
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/fritext-with-quote.json");
 
         //When:
