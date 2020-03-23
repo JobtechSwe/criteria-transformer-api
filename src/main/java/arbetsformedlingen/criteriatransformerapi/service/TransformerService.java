@@ -86,7 +86,7 @@ public class TransformerService implements ITransformerService {
                     criteria.getMunicipality().add(value);
                     break;
                 case LAN:
-                    criteria.getRegion().add(value);
+                    populateRegion(criteria, value);
                     break;
                 case LAND:
                     criteria.getCountry().add(value);
@@ -144,6 +144,19 @@ public class TransformerService implements ITransformerService {
                 String message = String.format("Could not populate arbetsomfattning for criteria: %s", kriteriumDTO);
                 logger.warn(message, e);
             }
+        }
+    }
+
+    /**
+     * Value 90 means unspecified workplace, no region is set.
+     * @param criteria
+     * @param value
+     */
+    private void populateRegion(Criteria criteria, String value) {
+        if ("90".equals(value)) {
+            criteria.setUnspecifiedSwedenWorkplace(true);
+        } else {
+            criteria.getRegion().add(value);
         }
     }
 

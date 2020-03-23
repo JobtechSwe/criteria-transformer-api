@@ -34,6 +34,8 @@ public class Criteria {
     private List<String> occupation = new ArrayList<>();
     private Parttime parttime;
     private Boolean drivingLicenceRequired;
+    private Boolean unspecifiedSwedenWorkplace;
+
 
     @Data
     @Builder

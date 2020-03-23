@@ -164,15 +164,15 @@ public class TransformerServiceSystemTest {
     @Test
     public void transformOspecificeradArbetsortToCriteria() throws IOException {
         //Given:
-        String expected = "90";
-
         MatchningsparametrarDTO matchningsparametrar = getParamsFor("test-data/ospecificerad-arbetsort.json");
 
         //When:
         Criteria criteria = service.transformToCriteria(matchningsparametrar).block();
 
         //Then:
-        assertThat(criteria.getRegion().get(0)).isEqualTo(expected);
+        assertThat(criteria.getRegion()).isEmpty();
+        assertThat(criteria.getUnspecifiedSwedenWorkplace()).isTrue();
+
     }
 
     @Test
@@ -427,7 +427,8 @@ public class TransformerServiceSystemTest {
 
         //Then:
         assertThat(criteria.getGroup()).containsExactly("2514");
-        assertThat(criteria.getRegion()).containsExactly("90");
+        assertThat(criteria.getRegion()).isEmpty();
+        assertThat(criteria.getUnspecifiedSwedenWorkplace()).isTrue();
     }
 
     @Test
