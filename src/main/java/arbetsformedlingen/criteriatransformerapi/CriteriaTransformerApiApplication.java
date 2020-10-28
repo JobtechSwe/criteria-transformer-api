@@ -25,6 +25,6 @@ public class CriteriaTransformerApiApplication {
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return route(GET("/"), req ->
-                ServerResponse.temporaryRedirect(URI.create("swagger-ui.html")).build());
+                ServerResponse.temporaryRedirect(URI.create("/swagger-ui/")).build());
     }
 }
